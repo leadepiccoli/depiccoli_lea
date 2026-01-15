@@ -175,7 +175,7 @@ body {
   background-color: #fff;
   flex-direction: column;    /* aligne les enfants verticalement */
   text-align: center;
-  gap: 70px;                 /* espace entre h1, mail et Instagram */
+  gap: 50px;                 /* espace entre h1, mail et Instagram */
 }
 
 .info-page a {
@@ -270,4 +270,3 @@ body {
     padding-top: 80px;
   }
 }
-
