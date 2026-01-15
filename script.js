@@ -12,20 +12,28 @@ document.addEventListener("DOMContentLoaded", function() {
     for (let key in sections) sections[key].classList.add("hidden");
   }
 
-  hideAll(); sections.home.classList.remove("hidden");
+  hideAll();
+  sections.home.classList.remove("hidden");
 
+  // Click sur logo = home
   document.getElementById("homeBtn").addEventListener("click", () => {
-    hideAll(); sections.home.classList.remove("hidden");
+    hideAll();
+    sections.home.classList.remove("hidden");
   });
 
+  // Click information
   document.getElementById("infoBtn").addEventListener("click", () => {
-    hideAll(); sections.information.classList.remove("hidden");
+    hideAll();
+    sections.information.classList.remove("hidden");
   });
 
+  // Click Selected Work
   document.getElementById("selectedWorkBtn").addEventListener("click", () => {
-    hideAll(); sections.selectedWork.classList.remove("hidden");
+    hideAll();
+    sections.selectedWork.classList.remove("hidden");
   });
 
+  // Click sur projets photography
   const photolinks = document.querySelectorAll(".dropdown-menu li a");
   photolinks.forEach(link => {
     link.addEventListener("click", (e) => {
