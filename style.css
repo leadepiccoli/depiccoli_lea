@@ -1,5 +1,5 @@
 /* ========================= */
-/* BASE */
+/* BASE ET RESET */
 /* ========================= */
 
 html {
@@ -61,13 +61,11 @@ body {
 }
 
 #infoBtn {
-  margin-left: 150px;
+  margin-left: 150px; /* décale légèrement */
 }
 
 /* ========================= */
 /* DROPDOWN */
-/* ========================= */
-
 .dropdown-menu {
   display: none;
   position: absolute;
@@ -75,10 +73,13 @@ body {
   left: 0;
   list-style: none;
   padding: 10px 0;
+  background: white;
+  z-index: 1000;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
 .dropdown-menu li {
-  padding: 4px 0;
+  padding: 4px 10px;
   white-space: nowrap;
 }
 
@@ -93,8 +94,6 @@ body {
 
 /* ========================= */
 /* HERO */
-/* ========================= */
-
 .hero {
   width: 100%;
   max-width: 2000px;
@@ -102,14 +101,12 @@ body {
   min-height: 500px;
   background-image: url('https://leadepiccoli.github.io/website-images/DSCF4529_rgb.jpg');
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: contain; /* garde les proportions */
   background-position: center;
 }
 
 /* ========================= */
 /* PROJECTS */
-/* ========================= */
-
 .project {
   padding: 100px 40px 60px;
   font-size: 10px;
@@ -118,18 +115,13 @@ body {
 .photos img {
   width: 100%;
   max-width: 500px;
+  height: auto;
   display: block;
   margin-bottom: 40px;
 }
 
-.hidden {
-  display: none;
-}
-
 /* ========================= */
 /* SELECTED WORK */
-/* ========================= */
-
 .selected-work {
   padding: 120px 40px;
 }
@@ -144,12 +136,11 @@ body {
   width: 100%;
   height: auto;
   object-fit: cover;
+  max-width: 100%;
 }
 
 /* ========================= */
 /* INFORMATION PAGE */
-/* ========================= */
-
 #information {
   display: flex;
   justify-content: center;
@@ -178,9 +169,14 @@ body {
 }
 
 /* ========================= */
-/* 📱 MOBILE / IPHONE */
-/* ========================= */
+/* GLOBAL IMAGE SETTINGS */
+img {
+  max-width: 100%;
+  height: auto;
+}
 
+/* ========================= */
+/* MOBILE / TABLET */
 @media (max-width: 768px) {
 
   /* NAVBAR */
@@ -195,6 +191,8 @@ body {
   .menu {
     gap: 32px;
     font-size: 11px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
   }
 
   #infoBtn {
@@ -235,11 +233,11 @@ body {
 
   /* SELECTED WORK GRID */
   .grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr; /* 1 image par ligne */
     gap: 16px;
   }
 
-  /* SCROLL SNAP – mobile only */
+  /* SCROLL SNAP – mobile uniquement */
   body {
     overflow-y: scroll;
     scroll-snap-type: y mandatory;
