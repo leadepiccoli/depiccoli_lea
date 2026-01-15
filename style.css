@@ -1,0 +1,207 @@
+html {
+  scroll-behavior: smooth;
+}
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.project-name {
+  position: absolute;
+  left: 40px;  /* à gauche de la navbar */
+  top: 50%;    /* centré verticalement */
+  transform: translateY(-50%);
+  font-weight: bold;
+  font-size: 10px;
+  white-space: nowrap;
+}
+
+/* HERO */
+.hero {
+  width: 100%; /* prend toute la largeur disponible */
+  height: auto; /* optionnel si tu veux ratio auto */
+  max-width: 2000px; /* limite la largeur */
+  margin: auto; /* centre horizontalement */
+  margin-top: 150px;
+  background-image: url('https://leadepiccoli.github.io/website-images/DSCF4529_rgb.jpg');
+  background-repeat: no-repeat;
+  background-size: contain; /* conserve taille originale */
+  background-position: center;
+  border-radius: 0px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0);
+
+  /* IMPORTANT : donner une hauteur minimum pour que ça s’affiche */
+  min-height: 500px; /* ajuste selon ton image */
+}
+
+.hero h1 {
+  font-size: 48px;
+  margin: 0;
+  letter-spacing: 2px;
+}
+
+.hero p {
+  font-size: 20px;
+  margin-top: 10px;
+}
+
+/* NAVBAR */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  z-index: 1000;
+  box-sizing: border-box;
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.menu {
+  font-weight: bold;
+  font-size: 12px;
+  list-style: none;
+  display: flex;
+  gap: 150px;
+  margin: 1;
+  padding: 0;
+  flex: 1;
+  justify-content: right;
+}
+
+.menu li {
+  font-weight: bold;
+  font-size: 12px;
+  position: relative;
+  cursor: pointer;
+}
+
+#infoBtn {
+  font-weight: bold;
+  font-size: 12px;
+  cursor: pointer;
+  margin-left: 150px; /* décale un peu vers la gauche */
+}
+
+/* DROPDOWN */
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 10px;
+  left: 0;
+  width: 100%;
+  background: none;
+  list-style: none;
+  padding: 10px 0;
+  box-shadow: 0 5px 20px rgba(0,0,0,0);
+  z-index: 1000;
+}
+
+.dropdown-menu li {
+ 
+  padding: 4px 0px;
+  white-space: nowrap;
+}
+
+.dropdown-menu li a {
+  text-decoration: none;
+  color: black;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+.info {
+  position: absolute;
+  right: 60px; 
+  white-space: nowrap;
+  font-weight: bold;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+/* PROJECTS */
+.project {
+  padding: 100px 40px 60px;
+  font-size: 10px;
+}
+
+.photos img {
+  width: 100%;
+  max-width: 500px;
+  display: block;
+  margin-bottom: 40px;
+}
+
+.hidden {
+  display: none;
+}
+
+/* SELECTED WORK */
+.selected-work {
+  padding: 120px 40px;
+}
+
+.hidden {
+  display: none;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 30px;
+}
+
+.grid img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+#information {
+  display: flex;
+  justify-content: center;   /* centre verticalement */
+  align-items: center;       /* centre horizontalement */
+  height: 150vh;             /* prend toute la hauteur de l'écran */
+  background-color: #fff;
+  flex-direction: column;    /* aligne les enfants verticalement */
+  text-align: center;
+  gap: 70px;                 /* espace entre h1, mail et Instagram */
+}
+
+.info-page a {
+  display: block;             /* chaque lien prend sa ligne */
+  font-size: 1rem;
+  color: black;
+  text-decoration: none;
+}
+
+.info-page a:hover {
+  text-decoration: underline;
+}
+
+.links-column {
+  display: flex;
+  flex-direction: column;  /* empile les liens verticalement */
+  gap: 20px;               /* espace entre mail et Instagram */
+  align-items: center;     /* centre les liens horizontalement */
+}
+
+.links-column a {
+  font-size: 1rem;
+  color: black;
+  text-decoration: underline;
+}
+
+.links-column a:hover {
+  text-decoration: underline;
+}
