@@ -1,65 +1,83 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DE PICCOLI LÉA</title>
-  <link rel="stylesheet" href="style.css"> <!-- ton CSS -->
-</head>
-<body>
+<link rel="stylesheet" href="style.css">
+<script src="script.js"></script>
 
-  <!-- NAVBAR -->
-  <nav class="navbar">
-    <div class="logo" id="homeBtn">DE PICCOLI LÉA</div>
-    <div class="project-name" id="projectName"></div>
+<!-- NAVIGATION -->
+<nav class="navbar">
+<div class="logo" id="homeBtn">DE PICCOLI LÉA</div>
+  <div class="project-name" id="projectName"></div>
 
-    <ul class="menu">
-      <li class="dropdown">PHOTOGRAPHY
-        <ul class="dropdown-menu">
-          <li><a href="#project1">01024001_PARIS</a></li>
-          <li><a href="#project2">01024002</a></li>
-          <li><a href="#project3">01024003_MARSEILLE</a></li>
-        </ul>
-      </li>
-      <li id="selectedWorkBtn">SELECTED WORKS</li>
-      <li class="dropdown">VIDEO
-        <ul class="dropdown-menu">
-          <li>V002401</li>
-          <li>V002501</li>
-        </ul>
-      </li>
-      <li id="infoBtn">INFORMATION</li>
-    </ul>
-  </nav>
+  <ul class="menu">
+    <li class="dropdown">
+      PHOTOGRAPHY
+      <ul class="dropdown-menu">
+        <li><a href="#project1">01024001_PARIS</a></li>
+        <li><a href="#project2">01024002</a></li>
+        <li><a href="#project3">01024003_MARSEILLE</a></li>
+      </ul>
+    </li>
 
-  <!-- HERO -->
-  <section class="hero" id="home"></section>
+    <li class="dropdown">
+      VIDEO
+      <ul class="dropdown-menu">
+        <li>V002401</li>
+        <li>V002501</li>
+      </ul>
+    </li>
 
-  <!-- INFORMATION -->
-  <section id="information" style="display:none;">
-    <div class="info-page">
-      <div class="links-column">
-        <a href="mailto:lea.depiccoli@gmail.com">lea.depiccoli@gmail.com</a>
-        <a href="https://instagram.com/lea.depiccoli" target="_blank">@lea.depiccoli</a>
-      </div>
+    <li id="selectedWorkBtn">SELECTED WORKS</li>
+    
+    <li id="infoBtn">INFORMATION</li>
+  
+  </ul>
+</nav>
+
+<!-- HERO PAGE -->
+<section class="hero" id="home">
+</section>
+
+<!-- PAGE INFORMATION -->
+<section id="information" style="display:none;">
+  <div class="info-page">
+  <div class="links-column">
+      <a href="mailto:lea.depiccoli@gmail.com">lea.depiccoli@gmail.com</a>
+      <a href="https://instagram.com/lea.depiccoli" target="_blank">@lea.depiccoli</a>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- SELECTED WORK -->
-  <section id="selected-work" class="selected-work hidden">
-    <div class="grid">
-      <img src="https://leadepiccoli.github.io/website-images/DSCF4529_rgb.jpg">
-      <img src="https://leadepiccoli.github.io/website-images/23_11_negative_06.jpg">
-    </div>
-  </section>
+<!-- SELECTED WORK GRID -->
+<section id="selected-work" class="selected-work hidden">
+  <div class="grid">
+    <img src="https://leadepiccoli.github.io/website-images/DSCF4529_rgb.jpg">
+    <img src="https://leadepiccoli.github.io/website-images/23_11_negative_06.jpg">
+    <img src="https://via.placeholder.com/600x800">
+    <img src="https://via.placeholder.com/600x800">
+    <img src="https://via.placeholder.com/600x800">
+    <img src="https://via.placeholder.com/600x800">
+  </div>
+</section>
 
-  <!-- PROJETS -->
-  <section id="project1" class="project hidden">
-    <h2>01024001_PARIS</h2>
-    <div class="photos">
-      <img src="https://leadepiccoli.github.io/website-images/23_11_negative_06.jpg">
-    </div>
-  </section>
+<!-- PROJETS -->
+<section id="project1" class="project hidden">
+  <h2>01024001_PARIS</h2>
+  <div class="photos">
+    <img src="https://leadepiccoli.github.io/website-images/23_11_negative_06.jpg">
+    <img src="https://via.placeholder.com/800x500">
+  </div>
+</section>
 
-</body>
-</html>
+<section id="project2" class="project hidden">
+  <h2>01024002</h2>
+  <div class="photos">
+    <img src="https://via.placeholder.com/800x500">
+    <img src="https://via.placeholder.com/800x500">
+  </div>
+</section>
+
+<section id="project3" class="project hidden">
+  <h2>01024003_MARSEILLE</h2>
+  <div class="photos">
+    <img src="https://via.placeholder.com/800x500">
+    <img src="https://via.placeholder.com/800x500">
+  </div>
+</section>
