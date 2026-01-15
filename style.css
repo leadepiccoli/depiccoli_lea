@@ -1,28 +1,25 @@
+/* ======= GLOBAL ======= */
 html { scroll-behavior: smooth; }
 body { margin:0; font-family: Arial, sans-serif; }
-
-/* NAVBAR */
-.navbar {
-  position: fixed; top:0; width:100%; padding:20px 40px;
-  display:flex; justify-content:space-between; align-items:center;
-  background:white; z-index:1000; box-sizing:border-box;
-}
-.logo { font-weight:bold; font-size:14px; cursor:pointer; }
-.menu { list-style:none; display:flex; gap:150px; margin:0; padding:0; }
-.menu li { font-size:12px; position:relative; cursor:pointer; }
-
-/* DROPDOWN */
-.dropdown-menu { display:none; position:absolute; top:100%; left:0; background:white; list-style:none; padding:10px 0; z-index:1000; }
-.dropdown:hover .dropdown-menu { display:block; }
-.dropdown-menu li { padding:4px 0; }
-.dropdown-menu li a { text-decoration:none; color:black; }
 
 /* HERO */
 .hero {
   width:100%; max-width:2000px; margin:150px auto 0; min-height:500px;
-  background-image: url('https://leadepiccoli.github.io/website-images/DSCF4529_rgb.jpg');
+  background-image:url('https://leadepiccoli.github.io/website-images/DSCF4529_rgb.jpg');
   background-size:contain; background-position:center; background-repeat:no-repeat;
 }
+
+/* NAVBAR desktop */
+.navbar { position:fixed; top:0; width:100%; padding:20px 40px; display:flex; justify-content:space-between; align-items:center; background:white; z-index:1000; }
+.logo { font-weight:bold; font-size:14px; cursor:pointer; }
+.menu { list-style:none; display:flex; gap:150px; margin:0; padding:0; }
+.menu li { font-size:12px; position:relative; cursor:pointer; }
+
+/* Dropdowns desktop */
+.dropdown-menu { display:none; position:absolute; top:100%; left:0; background:white; list-style:none; padding:10px 0; z-index:1001; }
+.dropdown:hover .dropdown-menu { display:block; }
+.dropdown-menu li { padding:4px 0; }
+.dropdown-menu li a { text-decoration:none; color:black; }
 
 /* PROJECTS */
 .project { padding:100px 40px 60px; }
@@ -34,21 +31,32 @@ body { margin:0; font-family: Arial, sans-serif; }
 .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(180px,1fr)); gap:30px; }
 .grid img { width:100%; height:auto; object-fit:cover; }
 
-/* INFORMATION PAGE */
+/* INFORMATION */
 #information { display:flex; justify-content:center; align-items:center; height:100vh; flex-direction:column; gap:50px; text-align:center; }
 .links-column { display:flex; flex-direction:column; gap:20px; align-items:center; }
 .links-column a { text-decoration:underline; color:black; font-size:1rem; }
 
-/* MOBILE / IPHONE */
+/* ======= MOBILE ======= */
 @media (max-width:768px) {
+
+  /* Navbar verticale */
   .navbar { flex-direction:column; align-items:flex-start; padding:14px 20px; gap:10px; }
   .logo { font-size:18px; margin-bottom:10px; }
   .menu { flex-direction:column; gap:12px; width:100%; }
   .menu li { font-size:16px; }
+
+  /* Dropdown mobile vertical */
   .dropdown-menu { position:static; display:none; padding:0; box-shadow:none; }
   .dropdown:hover .dropdown-menu { display:block; }
   .dropdown-menu li { padding:8px 0; }
+
+  /* Hero mobile plein écran */
   .hero { margin-top:0; height:100vh; background-size:cover; }
+
+  /* Projects mobile */
   .photos img { max-width:100%; margin-bottom:24px; }
   .grid { grid-template-columns:1fr; gap:16px; }
+
+  /* Information page */
+  #information { height:100vh; padding:20px; }
 }
