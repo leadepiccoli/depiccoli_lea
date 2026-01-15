@@ -205,3 +205,69 @@ body {
 .links-column a:hover {
   text-decoration: underline;
 }
+
+/* ========================= */
+/* MOBILE / TABLET */
+@media (max-width: 768px) {
+
+  /* NAVBAR */
+  .navbar {
+    padding: 14px 18px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .logo {
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+
+  .menu {
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+  }
+
+  .menu li {
+    font-size: 14px;
+  }
+
+  /* HERO */
+  .hero {
+    height: 80vh; /* plein écran mais pas énorme */
+    background-size: cover;
+    background-position: center;
+    margin-top: 0;
+  }
+
+  /* INFORMATION */
+  #information, .selected-work {
+    padding: 60px 20px;
+    text-align: center;
+  }
+
+  .links-column {
+    gap: 16px;
+  }
+
+  .links-column a {
+    font-size: 1.2rem;
+  }
+
+  /* GRID Selected Work */
+  .grid {
+    grid-template-columns: 1fr; /* 1 image par ligne */
+    gap: 16px;
+  }
+
+  /* PROJETS */
+  .photos img {
+    max-width: 100%;
+    margin-bottom: 24px;
+  }
+
+  .project {
+    padding-top: 80px;
+  }
+}
+
