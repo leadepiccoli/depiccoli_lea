@@ -4,14 +4,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const infoPage = document.getElementById("information");
   const selectedWork = document.getElementById("selected-work");
   const projects = document.querySelectorAll(".project");
-  const homeBtn = document.getElementById("homeBtn");  // logo cliquable
+  const homeBtn = document.getElementById("homeBtn");
   const infoBtn = document.getElementById("infoBtn");
   const selectedWorkBtn = document.getElementById("selectedWorkBtn");
   
   // Vérification que tous les éléments existent
   if (!home || !infoPage || !selectedWork || !homeBtn || !infoBtn || !selectedWorkBtn) {
     console.error("Un ou plusieurs éléments du DOM sont introuvables !");
-    return; // arrête le script pour éviter les erreurs
+    return;
   }
   
   // Fonction pour cacher toutes les sections
@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // CLIQUE SUR INFORMATION
   infoBtn.addEventListener("click", () => {
     hideAllSections();
-    infoPage.style.display = "flex"; // flex pour centrer verticalement
+    infoPage.style.display = "flex";
   });
   
   // CLIQUE SUR SELECTED WORKS
@@ -59,36 +59,53 @@ document.addEventListener("DOMContentLoaded", () => {
   });
   
   // ========================================
-  // FIX POUR MOBILE : DROPDOWN AU CLIC
+  // FIX MOBILE : DROPDOWN AU TOUCHER
   // ========================================
   const dropdowns = document.querySelectorAll('.dropdown');
   
   dropdowns.forEach(dropdown => {
-    // Au clic sur le parent (PHOTOGRAPHY ou VIDEO)
+    dropdown.addEventListener('touchstart', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      
+      // Toggle la classe active
+      const wasActive = this.classList.contains('active');
+      
+      // Ferme tous les dropdowns
+      dropdowns.forEach(d => d.classList.remove('active'));
+      
+      // Si n'était pas actif, on l'ouvre
+      if (!wasActive) {
+        this.classList.add('active');
+      }
+    });
+    
+    // Également pour le clic (backup)
     dropdown.addEventListener('click', function(e) {
-      // Si on clique directement sur le dropdown (pas sur un lien enfant)
-      if (e.target === this || e.target.tagName === 'LI') {
-        e.stopPropagation();
-        
-        // Toggle : ouvre/ferme ce dropdown
-        const menu = this.querySelector('.dropdown-menu');
-        const isOpen = menu.style.display === 'block';
-        
-        // Ferme tous les autres dropdowns
-        document.querySelectorAll('.dropdown-menu').forEach(m => {
-          m.style.display = 'none';
-        });
-        
-        // Toggle celui-ci
-        menu.style.display = isOpen ? 'none' : 'block';
+      // Ne pas déclencher si on clique sur un lien
+      if (e.target.tagName === 'A') return;
+      
+      e.preventDefault();
+      e.stopPropagation();
+      
+      const wasActive = this.classList.contains('active');
+      dropdowns.forEach(d => d.classList.remove('active'));
+      
+      if (!wasActive) {
+        this.classList.add('active');
       }
     });
   });
   
-  // Ferme les dropdowns si on clique ailleurs
-  document.addEventListener('click', () => {
-    document.querySelectorAll('.dropdown-menu').forEach(menu => {
-      menu.style.display = 'none';
+  // Ferme les dropdowns au toucher ailleurs
+  document.addEventListener('touchstart', () => {
+    dropdowns.forEach(d => d.classList.remove('active'));
+  });
+  
+  // Permet le clic sur les liens du dropdown
+  photoLinks.forEach(link => {
+    link.addEventListener('touchstart', function(e) {
+      e.stopPropagation();
     });
   });
 });
