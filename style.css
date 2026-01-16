@@ -171,11 +171,11 @@ body {
   display: flex;
   justify-content: center;   /* centre verticalement */
   align-items: center;       /* centre horizontalement */
-  height: 100vh;             /* prend toute la hauteur de l'écran */
+  height: 150vh;             /* prend toute la hauteur de l'écran */
   background-color: #fff;
   flex-direction: column;    /* aligne les enfants verticalement */
   text-align: center;
-  gap: 50px;                 /* espace entre h1, mail et Instagram */
+  gap: 70px;                 /* espace entre h1, mail et Instagram */
 }
 
 .info-page a {
@@ -206,28 +206,49 @@ body {
   text-decoration: underline;
 }
 
-/* ======= MOBILE ======= */
-@media (max-width:768px) {
 
-  /* Navbar verticale */
-  .navbar { flex-direction:column; align-items:flex-start; padding:14px 20px; gap:10px; }
-  .logo { font-size:18px; margin-bottom:10px; }
-  .menu { flex-direction:column; gap:12px; width:100%; }
-  .menu li { font-size:16px; }
+/* ========================= */
+/* MOBILE / IPHONE NAVBAR */
+@media (max-width: 768px) {
 
-  /* Dropdown mobile vertical */
-  .dropdown-menu { position:static; display:none; padding:0; box-shadow:none; }
-  .dropdown:hover .dropdown-menu { display:block; }
-  .dropdown-menu li { padding:8px 0; }
+  /* Navbar verticalisée */
+  .navbar {
+    flex-direction: column; /* empile logo et menu */
+    align-items: flex-start; /* alignement à gauche */
+    padding: 14px 20px;
+    gap: 10px;
+  }
 
-  /* Hero mobile plein écran */
-  .hero { margin-top:0; height:100vh; background-size:cover; }
+  /* Logo plus gros et espacée du menu */
+  .logo {
+    font-size: 18px;  /* plus grand */
+    margin-bottom: 10px;
+  }
 
-  /* Projects mobile */
-  .photos img { max-width:100%; margin-bottom:24px; }
-  .grid { grid-template-columns:1fr; gap:16px; }
+  /* Menu vertical */
+  .menu {
+    flex-direction: column;
+    gap: 12px;      /* espace entre les items */
+    width: 100%;
+  }
 
-  
-  /* Information page */
-  #information { height:100vh; padding:20px; }
+  .menu li {
+    font-size: 16px;  /* texte plus lisible */
+  }
+
+  /* Dropdowns mobiles : simple bloc vertical */
+  .dropdown-menu {
+    position: static;   /* plus besoin de absolute */
+    display: none;
+    box-shadow: none;
+    padding: 0;
+  }
+
+  .dropdown:hover .dropdown-menu {
+    display: block;   /* déroulé vertical */
+  }
+
+  .dropdown-menu li {
+    padding: 8px 0;
+  }
 }
