@@ -1,51 +1,20 @@
 html {
   scroll-behavior: smooth;
 }
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-  margin: 0;
   font-family: Arial, sans-serif;
+  background: #fff;
+  color: #000;
 }
 
-.project-name {
-  position: absolute;
-  left: 40px;  /* à gauche de la navbar */
-  top: 50%;    /* centré verticalement */
-  transform: translateY(-50%);
-  font-weight: bold;
-  font-size: 10px;
-  white-space: nowrap;
-}
-
-/* HERO */
-.hero {
-  width: 100%; /* prend toute la largeur disponible */
-  height: auto; /* optionnel si tu veux ratio auto */
-  max-width: 2000px; /* limite la largeur */
-  margin: auto; /* centre horizontalement */
-  margin-top: 150px;
-  background-image: url('https://leadepiccoli.github.io/website-images/DSCF4529_rgb.jpg');
-  background-repeat: no-repeat;
-  background-size: contain; /* conserve taille originale */
-  background-position: center;
-  border-radius: 0px;
-  box-shadow: 0 5px 20px rgba(0,0,0,0);
-
-  /* IMPORTANT : donner une hauteur minimum pour que ça s’affiche */
-  min-height: 500px; /* ajuste selon ton image */
-}
-
-.hero h1 {
-  font-size: 48px;
-  margin: 0;
-  letter-spacing: 2px;
-}
-
-.hero p {
-  font-size: 20px;
-  margin-top: 10px;
-}
-
-/* NAVBAR */
+/* NAVIGATION */
 .navbar {
   position: fixed;
   top: 0;
@@ -65,13 +34,23 @@ body {
   cursor: pointer;
 }
 
+.project-name {
+  position: absolute;
+  left: 40px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-weight: bold;
+  font-size: 10px;
+  white-space: nowrap;
+}
+
 .menu {
   font-weight: bold;
   font-size: 12px;
   list-style: none;
   display: flex;
   gap: 150px;
-  margin: 1;
+  margin: 0;
   padding: 0;
   flex: 1;
   justify-content: right;
@@ -85,10 +64,8 @@ body {
 }
 
 #infoBtn {
-  font-weight: bold;
-  font-size: 12px;
   cursor: pointer;
-  margin-left: 150px; /* décale un peu vers la gauche */
+  margin-left: 150px;
 }
 
 /* DROPDOWN */
@@ -106,7 +83,6 @@ body {
 }
 
 .dropdown-menu li {
- 
   padding: 4px 0px;
   white-space: nowrap;
 }
@@ -120,39 +96,76 @@ body {
   display: block;
 }
 
-.info {
-  position: absolute;
-  right: 60px; 
-  white-space: nowrap;
-  font-weight: bold;
-  font-size: 12px;
-  cursor: pointer;
-}
-
-/* PROJECTS */
-.project {
-  padding: 100px 40px 60px;
-  font-size: 10px;
-}
-
-.photos img {
+/* HERO */
+.hero {
   width: 100%;
-  max-width: 500px;
-  display: block;
-  margin-bottom: 40px;
+  height: auto;
+  max-width: 2000px;
+  margin: auto;
+  margin-top: 150px;
+  background-image: url('https://leadepiccoli.github.io/website-images/DSCF4529_rgb.jpg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  border-radius: 0px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0);
+  min-height: 500px;
 }
 
-.hidden {
-  display: none;
+.hero h1 {
+  font-size: 48px;
+  margin: 0;
+  letter-spacing: 2px;
+}
+
+.hero p {
+  font-size: 20px;
+  margin-top: 10px;
+}
+
+/* INFO PAGE */
+#information {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 150vh;
+  background-color: #fff;
+  flex-direction: column;
+  text-align: center;
+  gap: 70px;
+}
+
+.info-page a {
+  display: block;
+  font-size: 1rem;
+  color: black;
+  text-decoration: none;
+}
+
+.info-page a:hover {
+  text-decoration: underline;
+}
+
+.links-column {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+
+.links-column a {
+  font-size: 1rem;
+  color: black;
+  text-decoration: underline;
+}
+
+.links-column a:hover {
+  text-decoration: underline;
 }
 
 /* SELECTED WORK */
 .selected-work {
   padding: 120px 40px;
-}
-
-.hidden {
-  display: none;
 }
 
 .grid {
@@ -167,89 +180,156 @@ body {
   object-fit: cover;
 }
 
-#information {
+/* PROJECTS */
+.project {
+  padding: 100px 40px 60px;
+  font-size: 10px;
+}
+
+.photos {
   display: flex;
-  justify-content: center;   /* centre verticalement */
-  align-items: center;       /* centre horizontalement */
-  height: 150vh;             /* prend toute la hauteur de l'écran */
-  background-color: #fff;
-  flex-direction: column;    /* aligne les enfants verticalement */
-  text-align: center;
-  gap: 70px;                 /* espace entre h1, mail et Instagram */
+  flex-direction: column;
+  align-items: center;
 }
 
-.info-page a {
-  display: block;             /* chaque lien prend sa ligne */
-  font-size: 1rem;
-  color: black;
-  text-decoration: none;
+.photos img {
+  width: 100%;
+  max-width: 500px;
+  display: block;
+  margin-bottom: 40px;
 }
 
-.info-page a:hover {
-  text-decoration: underline;
+.hidden {
+  display: none;
 }
-
-.links-column {
-  display: flex;
-  flex-direction: column;  /* empile les liens verticalement */
-  gap: 20px;               /* espace entre mail et Instagram */
-  align-items: center;     /* centre les liens horizontalement */
-}
-
-.links-column a {
-  font-size: 1rem;
-  color: black;
-  text-decoration: underline;
-}
-
-.links-column a:hover {
-  text-decoration: underline;
-}
-
 
 /* ========================= */
-/* MOBILE / IPHONE NAVBAR */
+/* RESPONSIVE - TABLETTE */
+/* ========================= */
 @media (max-width: 768px) {
-
-  /* Navbar verticalisée */
   .navbar {
-    flex-direction: column; /* empile logo et menu */
-    align-items: flex-start; /* alignement à gauche */
+    flex-direction: column;
+    align-items: flex-start;
     padding: 14px 20px;
     gap: 10px;
   }
 
-  /* Logo plus gros et espacée du menu */
   .logo {
-    font-size: 18px;  /* plus grand */
+    font-size: 18px;
     margin-bottom: 10px;
   }
 
-  /* Menu vertical */
+  .project-name {
+    position: static;
+    transform: none;
+    margin-top: 5px;
+    font-size: 9px;
+  }
+
   .menu {
     flex-direction: column;
-    gap: 12px;      /* espace entre les items */
+    gap: 12px;
     width: 100%;
+    justify-content: flex-start;
   }
 
   .menu li {
-    font-size: 16px;  /* texte plus lisible */
+    font-size: 16px;
   }
 
-  /* Dropdowns mobiles : simple bloc vertical */
+  #infoBtn {
+    margin-left: 0;
+  }
+
   .dropdown-menu {
-    position: static;   /* plus besoin de absolute */
+    position: static;
     display: none;
     box-shadow: none;
     padding: 0;
+    margin-left: 15px;
   }
 
   .dropdown:hover .dropdown-menu {
-    display: block;   /* déroulé vertical */
+    display: block;
   }
 
-  
   .dropdown-menu li {
     padding: 8px 0;
+  }
+
+  .hero {
+    margin-top: 200px;
+    min-height: 400px;
+  }
+
+  .grid {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 20px;
+  }
+
+  .selected-work {
+    padding: 100px 20px;
+  }
+
+  .project {
+    padding: 100px 20px 40px;
+  }
+
+  #information {
+    height: 100vh;
+    gap: 50px;
+  }
+}
+
+/* ========================= */
+/* RESPONSIVE - MOBILE */
+/* ========================= */
+@media (max-width: 480px) {
+  .navbar {
+    padding: 12px 15px;
+  }
+
+  .logo {
+    font-size: 14px;
+  }
+
+  .project-name {
+    font-size: 8px;
+  }
+
+  .menu li {
+    font-size: 14px;
+  }
+
+  .hero {
+    margin-top: 250px;
+    min-height: 300px;
+    background-size: contain;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .selected-work {
+    padding: 80px 15px;
+  }
+
+  .project {
+    padding: 80px 15px 30px;
+  }
+
+  .photos img {
+    max-width: 100%;
+  }
+
+  #information {
+    height: 80vh;
+    gap: 30px;
+  }
+
+  .links-column a {
+    font-size: 0.9rem;
   }
 }
