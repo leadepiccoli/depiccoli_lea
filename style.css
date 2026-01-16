@@ -332,4 +332,9 @@ body {
   .links-column a {
     font-size: 0.9rem;
   }
+
+  /* FIX MOBILE - Affichage du dropdown au clic */
+.dropdown.active .dropdown-menu {
+  display: block !important;
+}
 }
