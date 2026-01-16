@@ -1,46 +1,63 @@
-document.addEventListener("DOMContentLoaded", function() {
-  const sections = {
-    home: document.getElementById("home"),
-    information: document.getElementById("information"),
-    selectedWork: document.getElementById("selected-work"),
-    project1: document.getElementById("project1"),
-    project2: document.getElementById("project2"),
-    project3: document.getElementById("project3")
-  };
+document.addEventListener("DOMContentLoaded", () => {
 
-  function hideAll() {
-    for (let key in sections) sections[key].classList.add("hidden");
+  // Récupération des éléments
+  const home = document.getElementById("home");
+  const infoPage = document.getElementById("information");
+  const selectedWork = document.getElementById("selected-work");
+  const projects = document.querySelectorAll(".project");
+
+  const homeBtn = document.getElementById("homeBtn");  // logo cliquable
+  const infoBtn = document.getElementById("infoBtn");
+  const selectedWorkBtn = document.getElementById("selectedWorkBtn");
+
+  // Vérification que tous les éléments existent
+  if (!home || !infoPage || !selectedWork || !homeBtn || !infoBtn || !selectedWorkBtn) {
+    console.error("Un ou plusieurs éléments du DOM sont introuvables !");
+    return; // arrête le script pour éviter les erreurs
   }
 
-  hideAll();
-  sections.home.classList.remove("hidden");
+  // Fonction pour cacher toutes les sections
+  function hideAllSections() {
+    home.style.display = "none";
+    infoPage.style.display = "none";
+    selectedWork.style.display = "none";
+    projects.forEach(p => p.style.display = "none");
+  }
 
-  // Click sur logo = home
-  document.getElementById("homeBtn").addEventListener("click", () => {
-    hideAll();
-    sections.home.classList.remove("hidden");
+  // CLIQUE SUR LE LOGO → HERO
+  homeBtn.addEventListener("click", () => {
+    hideAllSections();
+    home.style.display = "block";
   });
 
-  // Click information
-  document.getElementById("infoBtn").addEventListener("click", () => {
-    hideAll();
-    sections.information.classList.remove("hidden");
+  // CLIQUE SUR INFORMATION
+  infoBtn.addEventListener("click", () => {
+    hideAllSections();
+    infoPage.style.display = "flex"; // flex pour centrer verticalement
   });
 
-  // Click Selected Work
-  document.getElementById("selectedWorkBtn").addEventListener("click", () => {
-    hideAll();
-    sections.selectedWork.classList.remove("hidden");
+  // CLIQUE SUR SELECTED WORKS
+  selectedWorkBtn.addEventListener("click", () => {
+    hideAllSections();
+    selectedWork.style.display = "block";
   });
 
-  // Click sur projets photography
-  const photolinks = document.querySelectorAll(".dropdown-menu li a");
-  photolinks.forEach(link => {
-    link.addEventListener("click", (e) => {
+  // DROPDOWN PROJECTS
+  const photoLinks = document.querySelectorAll(".dropdown-menu li a");
+  photoLinks.forEach(link => {
+    link.addEventListener("click", e => {
       e.preventDefault();
-      const target = link.getAttribute("href").replace("#","");
-      hideAll();
-      if(sections[target]) sections[target].classList.remove("hidden");
+      const targetId = link.getAttribute("href").substring(1);
+      const targetProject = document.getElementById(targetId);
+
+      if (!targetProject) {
+        console.error(`Projet avec id "${targetId}" introuvable !`);
+        return;
+      }
+
+      hideAllSections();
+      targetProject.style.display = "block";
     });
   });
+
 });
