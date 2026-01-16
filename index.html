@@ -1,12 +1,19 @@
-<link rel="stylesheet" href="style.css">
-<script src="script.js"></script>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DE PICCOLI LÉA - Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
 <!-- NAVIGATION -->
 <nav class="navbar">
-<div class="logo" id="homeBtn">DE PICCOLI LÉA</div>
+  <div class="logo" id="homeBtn">DE PICCOLI LÉA</div>
   <div class="project-name" id="projectName"></div>
-
-  <ul class="menu">
+  
+  <ul class="menu" id="menu">
     <li class="dropdown">
       PHOTOGRAPHY
       <ul class="dropdown-menu">
@@ -16,7 +23,7 @@
       </ul>
     </li>
     
-<li id="selectedWorkBtn">SELECTED WORKS</li>
+    <li id="selectedWorkBtn">SELECTED WORKS</li>
     
     <li class="dropdown">
       VIDEO
@@ -25,21 +32,17 @@
         <li>V002501</li>
       </ul>
     </li>
-
-
     <li id="infoBtn">INFORMATION</li>
-  
   </ul>
 </nav>
 
 <!-- HERO PAGE -->
-<section class="hero" id="home">
-</section>
+<section class="hero" id="home"></section>
 
 <!-- PAGE INFORMATION -->
 <section id="information" style="display:none;">
   <div class="info-page">
-  <div class="links-column">
+    <div class="links-column">
       <a href="mailto:lea.depiccoli@gmail.com">lea.depiccoli@gmail.com</a>
       <a href="https://instagram.com/lea.depiccoli" target="_blank">@lea.depiccoli</a>
     </div>
@@ -49,12 +52,12 @@
 <!-- SELECTED WORK GRID -->
 <section id="selected-work" class="selected-work hidden">
   <div class="grid">
-    <img src="https://leadepiccoli.github.io/website-images/DSCF4529_rgb.jpg">
-    <img src="https://leadepiccoli.github.io/website-images/23_11_negative_06.jpg">
-    <img src="https://via.placeholder.com/600x800">
-    <img src="https://via.placeholder.com/600x800">
-    <img src="https://via.placeholder.com/600x800">
-    <img src="https://via.placeholder.com/600x800">
+    <img src="https://leadepiccoli.github.io/website-images/DSCF4529_rgb.jpg" alt="Work 1">
+    <img src="https://leadepiccoli.github.io/website-images/23_11_negative_06.jpg" alt="Work 2">
+    <img src="https://via.placeholder.com/600x800" alt="Work 3">
+    <img src="https://via.placeholder.com/600x800" alt="Work 4">
+    <img src="https://via.placeholder.com/600x800" alt="Work 5">
+    <img src="https://via.placeholder.com/600x800" alt="Work 6">
   </div>
 </section>
 
@@ -62,23 +65,27 @@
 <section id="project1" class="project hidden">
   <h2>01024001_PARIS</h2>
   <div class="photos">
-    <img src="https://leadepiccoli.github.io/website-images/23_11_negative_06.jpg">
-    <img src="https://via.placeholder.com/800x500">
+    <img src="https://leadepiccoli.github.io/website-images/23_11_negative_06.jpg" alt="Paris 1">
+    <img src="https://via.placeholder.com/800x500" alt="Paris 2">
   </div>
 </section>
 
 <section id="project2" class="project hidden">
   <h2>01024002</h2>
   <div class="photos">
-    <img src="https://via.placeholder.com/800x500">
-    <img src="https://via.placeholder.com/800x500">
+    <img src="https://via.placeholder.com/800x500" alt="Project 2-1">
+    <img src="https://via.placeholder.com/800x500" alt="Project 2-2">
   </div>
 </section>
 
 <section id="project3" class="project hidden">
   <h2>01024003_MARSEILLE</h2>
   <div class="photos">
-    <img src="https://via.placeholder.com/800x500">
-    <img src="https://via.placeholder.com/800x500">
+    <img src="https://via.placeholder.com/800x500" alt="Marseille 1">
+    <img src="https://via.placeholder.com/800x500" alt="Marseille 2">
   </div>
 </section>
+
+<script src="script.js"></script>
+</body>
+</html>
