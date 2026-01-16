@@ -57,14 +57,38 @@ document.addEventListener("DOMContentLoaded", () => {
       targetProject.style.display = "block";
     });
   });
+  
+  // ========================================
+  // FIX POUR MOBILE : DROPDOWN AU CLIC
+  // ========================================
+  const dropdowns = document.querySelectorAll('.dropdown');
+  
+  dropdowns.forEach(dropdown => {
+    // Au clic sur le parent (PHOTOGRAPHY ou VIDEO)
+    dropdown.addEventListener('click', function(e) {
+      // Si on clique directement sur le dropdown (pas sur un lien enfant)
+      if (e.target === this || e.target.tagName === 'LI') {
+        e.stopPropagation();
+        
+        // Toggle : ouvre/ferme ce dropdown
+        const menu = this.querySelector('.dropdown-menu');
+        const isOpen = menu.style.display === 'block';
+        
+        // Ferme tous les autres dropdowns
+        document.querySelectorAll('.dropdown-menu').forEach(m => {
+          m.style.display = 'none';
+        });
+        
+        // Toggle celui-ci
+        menu.style.display = isOpen ? 'none' : 'block';
+      }
+    });
+  });
+  
+  // Ferme les dropdowns si on clique ailleurs
+  document.addEventListener('click', () => {
+    document.querySelectorAll('.dropdown-menu').forEach(menu => {
+      menu.style.display = 'none';
+    });
+  });
 });
-```
-
----
-
-## 📦 **Structure de votre dossier GitHub :**
-```
-votre-repo/
-├── index.html
-├── style.css
-└── script.js
