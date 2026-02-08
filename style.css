@@ -215,7 +215,7 @@ body {
 /* ========================= */
 /* RESPONSIVE - TABLETTE */
 /* ========================= */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .navbar {
     flex-direction: column;
     align-items: flex-start;
@@ -267,7 +267,7 @@ body {
   }
 
   .hero {
-    margin-top: 200px;
+    margin-top: 250px;
     min-height: 400px;
   }
 
@@ -320,7 +320,7 @@ body {
   }
 
   .hero {
-    margin-top: 250px;
+    margin-top: 300px;
     min-height: 300px;
     background-size: contain;
   }
