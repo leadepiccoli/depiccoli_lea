@@ -3,11 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DE PICCOLI LÉA </title>
+  <title>DE PICCOLI LÉA</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
 <!-- NAVIGATION -->
 <nav class="navbar">
   <div class="logo" id="homeBtn">DE PICCOLI LÉA</div>
@@ -59,40 +58,68 @@
     <img src="https://leadepiccoli.github.io/website-images/23_11_negative_06.jpg" alt="Work 4">
     <img src="https://leadepiccoli.github.io/website-images/23_11_negative_02.jpg" alt="Work 5">
     <img src="https://leadepiccoli.github.io/website-images/23_11_negative_26.jpg" alt="Work 6">
-    
   </div>
 </section>
 
-<!-- PROJETS -->
+<!-- PROJET 1 - PARIS (SLIDER) -->
 <section id="project1" class="project hidden">
-  <h2>01024001_PARIS</h2>
-  <div class="photos">
-    <img src="https://leadepiccoli.github.io/website-images/lavomatic_01.jpg" alt="Paris 1">
-    <img src="https://leadepiccoli.github.io/website-images/Negative0-02-01(1).jpg" alt="Paris 2">
-    <img src="https://leadepiccoli.github.io/website-images/Negative0-09-08(1).jpg" alt="Paris 3">
-    <img src="https://leadepiccoli.github.io/website-images/23_11_negative_06.jpg" alt="Paris 4">
-    <img src="https://leadepiccoli.github.io/website-images/23_11_negative_02.jpg" alt="Paris 5">
-    <img src="https://leadepiccoli.github.io/website-images/23_11_negative_03.jpg" alt="Paris 6">
-     <img src="https://leadepiccoli.github.io/website-images/23_11_negative_26.jpg" alt="Paris 7">
-     <img src="https://leadepiccoli.github.io/website-images/23_11_negative_15.jpg" alt="Paris 8">
-    <img src="https://leadepiccoli.github.io/website-images/23_11_negative_20.jpg" alt="Paris 9">
-    <img src="https://leadepiccoli.github.io/website-images/23_11_negative_24.jpg" alt="Paris 10">
+  <h2>024001_PARIS</h2>
+  <div class="slider-container">
+    <div class="slider">
+      <img src="https://leadepiccoli.github.io/website-images/lavomatic_01.jpg" alt="Paris 1" class="slider-image active">
+      <img src="https://leadepiccoli.github.io/website-images/Negative0-02-01(1).jpg" alt="Paris 2" class="slider-image">
+      <img src="https://leadepiccoli.github.io/website-images/Negative0-09-08(1).jpg" alt="Paris 3" class="slider-image">
+      <img src="https://leadepiccoli.github.io/website-images/23_11_negative_06.jpg" alt="Paris 4" class="slider-image">
+      <img src="https://leadepiccoli.github.io/website-images/23_11_negative_02.jpg" alt="Paris 5" class="slider-image">
+      <img src="https://leadepiccoli.github.io/website-images/23_11_negative_03.jpg" alt="Paris 6" class="slider-image">
+      <img src="https://leadepiccoli.github.io/website-images/23_11_negative_26.jpg" alt="Paris 7" class="slider-image">
+      <img src="https://leadepiccoli.github.io/website-images/23_11_negative_15.jpg" alt="Paris 8" class="slider-image">
+      <img src="https://leadepiccoli.github.io/website-images/23_11_negative_20.jpg" alt="Paris 9" class="slider-image">
+      <img src="https://leadepiccoli.github.io/website-images/23_11_negative_24.jpg" alt="Paris 10" class="slider-image">
+    </div>
+    
+    <button class="slider-btn prev" onclick="changeSlide(event, -1)">‹</button>
+    <button class="slider-btn next" onclick="changeSlide(event, 1)">›</button>
+    
+    <div class="slider-counter">
+      <span class="current-slide">1</span> / <span class="total-slides">10</span>
+    </div>
   </div>
 </section>
 
+<!-- PROJET 2 (SLIDER) -->
 <section id="project2" class="project hidden">
-  <h2>01024002</h2>
-  <div class="photos">
-    <img src="https://via.placeholder.com/800x500" alt="Project 2-1">
-    <img src="https://via.placeholder.com/800x500" alt="Project 2-2">
+  <h2>024002</h2>
+  <div class="slider-container">
+    <div class="slider">
+      <img src="https://via.placeholder.com/800x500" alt="Project 2-1" class="slider-image active">
+      <img src="https://via.placeholder.com/800x500" alt="Project 2-2" class="slider-image">
+    </div>
+    
+    <button class="slider-btn prev" onclick="changeSlide(event, -1)">‹</button>
+    <button class="slider-btn next" onclick="changeSlide(event, 1)">›</button>
+    
+    <div class="slider-counter">
+      <span class="current-slide">1</span> / <span class="total-slides">2</span>
+    </div>
   </div>
 </section>
 
+<!-- PROJET 3 - MARSEILLE (SLIDER) -->
 <section id="project3" class="project hidden">
-  <h2>01024003_MARSEILLE</h2>
-  <div class="photos">
-    <img src="https://via.placeholder.com/800x500" alt="Marseille 1">
-    <img src="https://via.placeholder.com/800x500" alt="Marseille 2">
+  <h2>024003_MARSEILLE</h2>
+  <div class="slider-container">
+    <div class="slider">
+      <img src="https://via.placeholder.com/800x500" alt="Marseille 1" class="slider-image active">
+      <img src="https://via.placeholder.com/800x500" alt="Marseille 2" class="slider-image">
+    </div>
+    
+    <button class="slider-btn prev" onclick="changeSlide(event, -1)">‹</button>
+    <button class="slider-btn next" onclick="changeSlide(event, 1)">›</button>
+    
+    <div class="slider-counter">
+      <span class="current-slide">1</span> / <span class="total-slides">2</span>
+    </div>
   </div>
 </section>
 
