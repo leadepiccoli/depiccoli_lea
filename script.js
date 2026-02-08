@@ -100,7 +100,7 @@ document.addEventListener("DOMContentLoaded", () => {
       e.stopPropagation();
     });
   });
-});
+}); // ← CETTE ACCOLADE FERME LE DOMContentLoaded
 
 // ========================================
 // FONCTION SLIDER
