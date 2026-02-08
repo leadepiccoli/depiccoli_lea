@@ -191,15 +191,16 @@ body {
 
 /* PROJECTS */
 .project {
-  padding: 100px 40px 60px;
+  padding: 150px 40px 60px; /* Réduit de 100px à 180px pour moins d'espace avec navbar */
   font-size: 10px;
 }
 
 .project h2 {
   text-align: center;
-  margin-bottom: 40px;
-  font-size: 14px;
-  font-weight: bold;
+  margin-top: 15px; /* Espace entre compteur et titre */
+  font-size: 12px; /* Même taille que le compteur */
+  font-weight: normal; /* Pas de gras */
+  color: #333; /* Même couleur gris foncé que le compteur */
 }
 
 /* ========================= */
@@ -355,8 +356,14 @@ body {
   }
 
   .project {
-    padding: 350px 20px 40px;
+    padding: 320px 20px 40px; /* Réduit légèrement */
   }
+
+  .project h2 {
+    font-size: 11px;
+    margin-top: 12px;
+  }
+}
 
   .slider-container {
     min-height: 500px;
@@ -415,8 +422,14 @@ body {
   }
 
   .project {
-    padding: 300px 15px 30px;
+    padding: 280px 15px 30px; /* Réduit légèrement */
   }
+
+  .project h2 {
+    font-size: 11px;
+    margin-top: 10px;
+  }
+}
 
   .slider-container {
     min-height: 400px;
