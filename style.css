@@ -277,11 +277,11 @@ body {
   }
 
   .selected-work {
-    padding: 100px 20px;
+    padding: 320px 20px;
   }
 
   .project {
-    padding: 100px 20px 40px;
+    padding: 320px 20px 40px;
   }
 
   .intro-text {
@@ -320,7 +320,7 @@ body {
   }
 
   .hero {
-    margin-top: 380px;
+    margin-top: 300px;
     min-height: 300px;
     background-size: contain;
   }
@@ -331,11 +331,11 @@ body {
   }
 
   .selected-work {
-    padding: 80px 15px;
+    padding: 300px 15px;
   }
 
   .project {
-    padding: 80px 15px 30px;
+    padding: 300px 15px 30px;
   }
 
   .photos img {
