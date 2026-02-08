@@ -19,6 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
     home.style.display = "none";
     infoPage.style.display = "none";
     selectedWork.style.display = "none";
+    selectedWork.classList.add("hidden");
     projects.forEach(p => p.style.display = "none");
   }
   
@@ -38,6 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
   selectedWorkBtn.addEventListener("click", () => {
     hideAllSections();
     selectedWork.style.display = "block";
+    selectedWork.classList.remove("hidden");
   });
   
   // DROPDOWN PROJECTS
