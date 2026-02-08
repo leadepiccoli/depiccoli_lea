@@ -40,7 +40,7 @@ body {
   top: 50%;
   transform: translateY(-50%);
   font-weight: bold;
-  font-size: 10px;
+  font-size: 12px;
   white-space: nowrap;
 }
 
@@ -100,7 +100,7 @@ body {
 .hero {
   width: 100%;
   height: auto;
-  max-width: 2000px;
+  max-width: 2500px;
   margin: auto;
   margin-top: 150px;
   background-image: url('https://leadepiccoli.github.io/website-images/depiccoli_025.jpg');
@@ -191,7 +191,7 @@ body {
 
 /* PROJECTS */
 .project {
-  padding: 150px 40px 60px; /* Réduit de 100px à 180px pour moins d'espace avec navbar */
+  padding: 180px 40px 60px; /* Réduit de 100px à 180px pour moins d'espace avec navbar */
   font-size: 10px;
 }
 
