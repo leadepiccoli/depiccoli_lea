@@ -152,3 +152,4 @@ document.addEventListener('keydown', (e) => {
     if (prevBtn) changeSlide({ target: prevBtn, stopPropagation: () => {} }, -1);
   }
 });
+```
