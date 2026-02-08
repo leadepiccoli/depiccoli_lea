@@ -19,7 +19,7 @@ body {
   position: fixed;
   top: 0;
   width: 100%;
-  padding: 30px 40px;
+  padding: 25px 40px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -58,7 +58,7 @@ body {
 
 .menu li {
   font-weight: bold;
-  font-size: 12px;
+  font-size: 10px;
   position: relative;
   cursor: pointer;
 }
@@ -296,12 +296,12 @@ body {
     flex-direction: column;
     align-items: flex-start;
     padding: 14px 20px;
-    gap: 10px;
+    gap: 8px;
   }
 
   .logo {
     font-size: 16px;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
   }
 
   .project-name {
@@ -393,10 +393,12 @@ body {
 @media (max-width: 480px) {
   .navbar {
     padding: 12px 15px;
+    gap: 4px;
   }
 
   .logo {
     font-size: 8px;
+    margin-bottom: 4px;
   }
 
   .project-name {
