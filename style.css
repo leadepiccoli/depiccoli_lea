@@ -197,10 +197,11 @@ body {
 
 .project h2 {
   text-align: center;
-  margin-top: 15px; /* Espace entre compteur et titre */
-  font-size: 12px; /* Même taille que le compteur */
-  font-weight: normal; /* Pas de gras */
-  color: #333; /* Même couleur gris foncé que le compteur */
+  margin-top: 15px;
+  font-size: 12px;
+  font-weight: normal;
+  color: #333;
+  pointer-events: none; /* ✅ Le titre ne capture pas les clics */
 }
 
 /* ========================= */
