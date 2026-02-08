@@ -16,12 +16,12 @@ document.addEventListener("DOMContentLoaded", () => {
   
   // Fonction pour cacher toutes les sections
   function hideAllSections() {
-    home.style.display = "none";
-    infoPage.style.display = "none";
-    selectedWork.style.display = "none";
-    selectedWork.classList.add("hidden");
-    projects.forEach(p => p.style.display = "none");
-  }
+  home.style.display = "none";
+  infoPage.style.display = "none";
+  selectedWork.style.display = "none";
+  projects.forEach(p => p.style.display = "none");
+}
+
   
   // CLIQUE SUR LE LOGO → HERO
   homeBtn.addEventListener("click", () => {
