@@ -68,21 +68,15 @@ document.addEventListener("DOMContentLoaded", () => {
       e.preventDefault();
       e.stopPropagation();
       
-      // Toggle la classe active
       const wasActive = this.classList.contains('active');
-      
-      // Ferme tous les dropdowns
       dropdowns.forEach(d => d.classList.remove('active'));
       
-      // Si n'était pas actif, on l'ouvre
       if (!wasActive) {
         this.classList.add('active');
       }
     });
     
-    // Également pour le clic (backup)
     dropdown.addEventListener('click', function(e) {
-      // Ne pas déclencher si on clique sur un lien
       if (e.target.tagName === 'A') return;
       
       e.preventDefault();
@@ -97,15 +91,64 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
   
-  // Ferme les dropdowns au toucher ailleurs
   document.addEventListener('touchstart', () => {
     dropdowns.forEach(d => d.classList.remove('active'));
   });
   
-  // Permet le clic sur les liens du dropdown
   photoLinks.forEach(link => {
     link.addEventListener('touchstart', function(e) {
       e.stopPropagation();
     });
   });
+});
+
+// ========================================
+// FONCTION SLIDER
+// ========================================
+function changeSlide(event, direction) {
+  event.stopPropagation();
+  
+  const sliderContainer = event.target.closest('.slider-container');
+  const slides = sliderContainer.querySelectorAll('.slider-image');
+  const counter = sliderContainer.querySelector('.current-slide');
+  
+  let currentIndex = 0;
+  slides.forEach((slide, index) => {
+    if (slide.classList.contains('active')) {
+      currentIndex = index;
+    }
+  });
+  
+  let newIndex = currentIndex + direction;
+  
+  // Boucle infinie
+  if (newIndex >= slides.length) {
+    newIndex = 0;
+  } else if (newIndex < 0) {
+    newIndex = slides.length - 1;
+  }
+  
+  slides[currentIndex].classList.remove('active');
+  slides[newIndex].classList.add('active');
+  
+  if (counter) {
+    counter.textContent = newIndex + 1;
+  }
+}
+
+// Navigation au clavier (flèches gauche/droite)
+document.addEventListener('keydown', (e) => {
+  const activeProject = document.querySelector('.project:not(.hidden)');
+  if (!activeProject) return;
+  
+  const sliderContainer = activeProject.querySelector('.slider-container');
+  if (!sliderContainer) return;
+  
+  if (e.key === 'ArrowRight') {
+    const nextBtn = sliderContainer.querySelector('.slider-btn.next');
+    if (nextBtn) changeSlide({ target: nextBtn, stopPropagation: () => {} }, 1);
+  } else if (e.key === 'ArrowLeft') {
+    const prevBtn = sliderContainer.querySelector('.slider-btn.prev');
+    if (prevBtn) changeSlide({ target: prevBtn, stopPropagation: () => {} }, -1);
+  }
 });
