@@ -404,8 +404,13 @@ body {
   }
 
   .menu li {
-    font-size: 14px;
+    font-size: 12px;
   }
+
+  .menu {
+    gap: 10px;  /* Réduit aussi l'espace entre les items */
+  }
+}
 
   .hero {
     margin-top: 300px;
