@@ -295,7 +295,7 @@ body {
   .navbar {
     flex-direction: column;
     align-items: flex-start;
-    padding: 14px 20px;
+    padding: 12px 20px;
     gap: 8px;
   }
 
@@ -308,12 +308,12 @@ body {
     position: static;
     transform: none;
     margin-top: 5px;
-    font-size: 9px;
+    font-size: 12px;
   }
 
   .menu {
     flex-direction: column;
-    gap: 12px;
+    gap: 10px;
     width: 100%;
     justify-content: flex-start;
   }
@@ -392,13 +392,13 @@ body {
 /* ========================= */
 @media (max-width: 480px) {
   .navbar {
-    padding: 12px 15px;
-    gap: 4px;
+    padding: 10px 15px;
+    gap: 2px;
   }
 
   .logo {
     font-size: 8px;
-    margin-bottom: 4px;
+    margin-bottom: 2px;
   }
 
   .project-name {
@@ -410,7 +410,7 @@ body {
   }
 
   .menu {
-    gap: 10px;  /* Réduit aussi l'espace entre les items */
+    gap: 8px;  /* Réduit aussi l'espace entre les items */
   }
 }
 
