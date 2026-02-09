@@ -173,6 +173,11 @@ body {
 }
 
 /* SELECTED WORK */
+
+.hidden {
+  display: none;
+}
+
 .selected-work {
   padding: 120px 40px;
 }
