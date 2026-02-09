@@ -9,9 +9,10 @@ html {
 }
 
 body {
-  font-family: Kaluar, sans-serif;
+  font-family: 'Inter', -apple-system, Arial, sans-serif;
   background: #fff;
   color: #000;
+  font-weight: 400;
 }
 
 /* NAVIGATION */
