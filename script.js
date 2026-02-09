@@ -16,12 +16,11 @@ document.addEventListener("DOMContentLoaded", () => {
   
   // Fonction pour cacher toutes les sections
   function hideAllSections() {
-  home.style.display = "none";
-  infoPage.style.display = "none";
-  selectedWork.style.display = "none";
-  projects.forEach(p => p.style.display = "none");
-}
-
+    home.style.display = "none";
+    infoPage.style.display = "none";
+    selectedWork.style.display = "none";
+    projects.forEach(p => p.style.display = "none");
+  }
   
   // CLIQUE SUR LE LOGO → HERO
   homeBtn.addEventListener("click", () => {
@@ -39,7 +38,6 @@ document.addEventListener("DOMContentLoaded", () => {
   selectedWorkBtn.addEventListener("click", () => {
     hideAllSections();
     selectedWork.style.display = "block";
-    selectedWork.classList.remove("hidden");
   });
   
   // DROPDOWN PROJECTS
@@ -102,7 +100,7 @@ document.addEventListener("DOMContentLoaded", () => {
       e.stopPropagation();
     });
   });
-}); // ← CETTE ACCOLADE FERME LE DOMContentLoaded
+});
 
 // ========================================
 // FONCTION SLIDER
