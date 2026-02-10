@@ -417,7 +417,7 @@ body {
   }
 
   .hero {
-    margin-top: 300px;
+    margin-top: 250px;
     min-height: 400px;
     background-size: contain;
   }
@@ -428,7 +428,7 @@ body {
   }
 
   .selected-work {
-    padding: 270px 15px;
+    padding: 250px 15px;
   }
 
   .project {
