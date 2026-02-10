@@ -175,12 +175,10 @@ body {
 
 /* SELECTED WORK */
 
-.hidden {
-  display: none;
-}
-
+/* SELECTED WORK */
 .selected-work {
   padding: 120px 40px;
+  display: block;  
 }
 
 .grid {
@@ -195,9 +193,13 @@ body {
   object-fit: cover;
 }
 
+.hidden {
+  display: none !important;  
+}
+
 /* PROJECTS */
 .project {
-  padding: 30px 40px 60px; /* Réduit de 100px à 180px pour moins d'espace avec navbar */
+  padding: 80px 40px 60px; !important;
   font-size: 10px;
 }
 
