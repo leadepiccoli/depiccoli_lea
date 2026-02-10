@@ -1,165 +1,130 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Récupération des éléments
   const home = document.getElementById("home");
   const infoPage = document.getElementById("information");
   const selectedWork = document.getElementById("selected-work");
   const projects = document.querySelectorAll(".project");
+
   const homeBtn = document.getElementById("homeBtn");
   const infoBtn = document.getElementById("infoBtn");
   const selectedWorkBtn = document.getElementById("selectedWorkBtn");
-  
-  // Vérification que tous les éléments existent
+
   if (!home || !infoPage || !selectedWork || !homeBtn || !infoBtn || !selectedWorkBtn) {
-    console.error("Un ou plusieurs éléments du DOM sont introuvables !");
+    console.error("DOM incomplet");
     return;
   }
-  
-  // Fonction pour cacher toutes les sections
-function hideAllSections() {
-  home.style.display = "none";
-  infoPage.style.display = "none";
-  
-  // Pour selected work
-  selectedWork.style.display = "none";
-  selectedWork.classList.add("hidden");
-  
-  projects.forEach(p => p.style.display = "none");
-}
-  
-  // CLIQUE SUR LE LOGO → HERO
+
+  // CACHE TOUT
+  function hideAllSections() {
+    home.style.display = "none";
+    infoPage.style.display = "none";
+    selectedWork.style.display = "none";
+
+    projects.forEach(p => {
+      p.style.display = "none";
+    });
+  }
+
+  // HOME
   homeBtn.addEventListener("click", () => {
     hideAllSections();
     home.style.display = "block";
   });
-  
-  // CLIQUE SUR INFORMATION
+
+  // INFO
   infoBtn.addEventListener("click", () => {
     hideAllSections();
     infoPage.style.display = "flex";
   });
-  
-  // CLIQUE SUR SELECTED WORKS
-selectedWorkBtn.addEventListener("click", () => {
-  hideAllSections();
-  
-  // Affiche la section
-  selectedWork.style.display = "block";
-  
-  // Retire la classe hidden
-  selectedWork.classList.remove("hidden");
-  
-  console.log("Selected Works affiché");  // Pour vérifier
-});
-  
-  // DROPDOWN PROJECTS
-  const photoLinks = document.querySelectorAll(".dropdown-menu li a");
-  photoLinks.forEach(link => {
+
+  // SELECTED WORKS
+  selectedWorkBtn.addEventListener("click", () => {
+    hideAllSections();
+    selectedWork.style.display = "block";
+  });
+
+  // PROJECTS
+  const projectLinks = document.querySelectorAll(".dropdown-menu li a");
+
+  projectLinks.forEach(link => {
     link.addEventListener("click", e => {
       e.preventDefault();
-      const targetId = link.getAttribute("href").substring(1);
-      const targetProject = document.getElementById(targetId);
-      
-      if (!targetProject) {
-        console.error(`Projet avec id "${targetId}" introuvable !`);
-        return;
-      }
-      
+
+      const targetId = link.getAttribute("href").replace("#", "");
+      const project = document.getElementById(targetId);
+      if (!project) return;
+
       hideAllSections();
-      targetProject.style.display = "block";
+      project.style.display = "block";
+
+      // FORCE LE PREMIER SLIDE
+      const slides = project.querySelectorAll(".slider-image");
+      slides.forEach(s => s.classList.remove("active"));
+      if (slides.length > 0) {
+        slides[0].classList.add("active");
+      }
     });
   });
-  
-  // ========================================
-  // FIX MOBILE : DROPDOWN AU TOUCHER
-  // ========================================
-  const dropdowns = document.querySelectorAll('.dropdown');
-  
+
+  // DROPDOWN MOBILE
+  const dropdowns = document.querySelectorAll(".dropdown");
+
   dropdowns.forEach(dropdown => {
-    dropdown.addEventListener('touchstart', function(e) {
+    dropdown.addEventListener("click", e => {
+      if (e.target.tagName === "A") return;
       e.preventDefault();
-      e.stopPropagation();
-      
-      const wasActive = this.classList.contains('active');
-      dropdowns.forEach(d => d.classList.remove('active'));
-      
-      if (!wasActive) {
-        this.classList.add('active');
-      }
-    });
-    
-    dropdown.addEventListener('click', function(e) {
-      if (e.target.tagName === 'A') return;
-      
-      e.preventDefault();
-      e.stopPropagation();
-      
-      const wasActive = this.classList.contains('active');
-      dropdowns.forEach(d => d.classList.remove('active'));
-      
-      if (!wasActive) {
-        this.classList.add('active');
-      }
+      dropdown.classList.toggle("active");
     });
   });
-  
-  document.addEventListener('touchstart', () => {
-    dropdowns.forEach(d => d.classList.remove('active'));
-  });
-  
-  photoLinks.forEach(link => {
-    link.addEventListener('touchstart', function(e) {
-      e.stopPropagation();
-    });
+
+  document.addEventListener("click", () => {
+    dropdowns.forEach(d => d.classList.remove("active"));
   });
 });
 
-// ========================================
-// FONCTION SLIDER
-// ========================================
+// =======================
+// SLIDER
+// =======================
 function changeSlide(event, direction) {
   event.stopPropagation();
-  
-  const sliderContainer = event.target.closest('.slider-container');
-  const slides = sliderContainer.querySelectorAll('.slider-image');
-  const counter = sliderContainer.querySelector('.current-slide');
-  
-  let currentIndex = 0;
-  slides.forEach((slide, index) => {
-    if (slide.classList.contains('active')) {
-      currentIndex = index;
-    }
+
+  const slider = event.target.closest(".slider-container");
+  if (!slider) return;
+
+  const slides = slider.querySelectorAll(".slider-image");
+  const counter = slider.querySelector(".current-slide");
+
+  let index = 0;
+  slides.forEach((s, i) => {
+    if (s.classList.contains("active")) index = i;
   });
-  
-  let newIndex = currentIndex + direction;
-  
-  // Boucle infinie
-  if (newIndex >= slides.length) {
-    newIndex = 0;
-  } else if (newIndex < 0) {
-    newIndex = slides.length - 1;
-  }
-  
-  slides[currentIndex].classList.remove('active');
-  slides[newIndex].classList.add('active');
-  
-  if (counter) {
-    counter.textContent = newIndex + 1;
-  }
+
+  slides[index].classList.remove("active");
+
+  let next = index + direction;
+  if (next >= slides.length) next = 0;
+  if (next < 0) next = slides.length - 1;
+
+  slides[next].classList.add("active");
+
+  if (counter) counter.textContent = next + 1;
 }
 
-// Navigation au clavier (flèches gauche/droite)
-document.addEventListener('keydown', (e) => {
-  const activeProject = document.querySelector('.project:not(.hidden)');
-  if (!activeProject) return;
-  
-  const sliderContainer = activeProject.querySelector('.slider-container');
-  if (!sliderContainer) return;
-  
-  if (e.key === 'ArrowRight') {
-    const nextBtn = sliderContainer.querySelector('.slider-btn.next');
-    if (nextBtn) changeSlide({ target: nextBtn, stopPropagation: () => {} }, 1);
-  } else if (e.key === 'ArrowLeft') {
-    const prevBtn = sliderContainer.querySelector('.slider-btn.prev');
-    if (prevBtn) changeSlide({ target: prevBtn, stopPropagation: () => {} }, -1);
+// NAV CLAVIER
+document.addEventListener("keydown", e => {
+  const project = [...document.querySelectorAll(".project")]
+    .find(p => p.style.display === "block");
+  if (!project) return;
+
+  const slider = project.querySelector(".slider-container");
+  if (!slider) return;
+
+  if (e.key === "ArrowRight") {
+    const btn = slider.querySelector(".slider-btn.next");
+    if (btn) changeSlide({ target: btn, stopPropagation() {} }, 1);
+  }
+
+  if (e.key === "ArrowLeft") {
+    const btn = slider.querySelector(".slider-btn.prev");
+    if (btn) changeSlide({ target: btn, stopPropagation() {} }, -1);
   }
 });
