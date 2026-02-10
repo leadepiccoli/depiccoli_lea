@@ -15,12 +15,16 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   
   // Fonction pour cacher toutes les sections
-  function hideAllSections() {
-    home.style.display = "none";
-    infoPage.style.display = "none";
-    selectedWork.style.display = "none";
-    projects.forEach(p => p.style.display = "none");
-  }
+function hideAllSections() {
+  home.style.display = "none";
+  infoPage.style.display = "none";
+  
+  // Pour selected work
+  selectedWork.style.display = "none";
+  selectedWork.classList.add("hidden");
+  
+  projects.forEach(p => p.style.display = "none");
+}
   
   // CLIQUE SUR LE LOGO → HERO
   homeBtn.addEventListener("click", () => {
@@ -35,10 +39,17 @@ document.addEventListener("DOMContentLoaded", () => {
   });
   
   // CLIQUE SUR SELECTED WORKS
-  selectedWorkBtn.addEventListener("click", () => {
-    hideAllSections();
-    selectedWork.style.display = "block";
-  });
+selectedWorkBtn.addEventListener("click", () => {
+  hideAllSections();
+  
+  // Affiche la section
+  selectedWork.style.display = "block";
+  
+  // Retire la classe hidden
+  selectedWork.classList.remove("hidden");
+  
+  console.log("Selected Works affiché");  // Pour vérifier
+});
   
   // DROPDOWN PROJECTS
   const photoLinks = document.querySelectorAll(".dropdown-menu li a");
