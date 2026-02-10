@@ -192,13 +192,13 @@ body {
 
 /* PROJECTS */
 .project {
-  padding: 110px 40px 60px;
+  padding: 100px 40px 60px;
   font-size: 10px;
 }
 
 .project h2 {
   text-align: center;
-  margin-top: 15px;
+  margin-top: 10px;
   font-size: 12px;
   font-weight: normal;
   color: #333;
@@ -417,7 +417,7 @@ body {
   }
 
   .hero {
-    margin-top: 160px;
+    margin-top: 180px;
     min-height: 400px;
     background-size: contain;
   }
@@ -428,7 +428,7 @@ body {
   }
 
   .selected-work {
-    padding-top: 100px;   /* ajuste ici */
+    padding-top: 180px;   /* ajuste ici */
     padding-left: 15px;
     padding-right: 15px;
     padding-bottom: 40px;
@@ -436,7 +436,7 @@ body {
 
 
   .project {
-    padding: 200px 15px 30px;
+    padding: 180px 15px 30px;
   }
 
   .project h2 {
@@ -447,7 +447,7 @@ body {
   .slider-container {
     min-height: 350px;
     cursor: pointer;
-    padding-top: 20px
+    padding-top: 15px
   }
 
   .slider-image {
