@@ -175,7 +175,7 @@ body {
 
 /* SELECTED WORK */
 .selected-work {
-  padding: 120px 40px;
+  padding: 130px 40px;
 }
 
 .grid {
@@ -192,7 +192,7 @@ body {
 
 /* PROJECTS */
 .project {
-  padding: 170px 40px 60px;
+  padding: 130px 40px 60px;
   font-size: 10px;
 }
 
@@ -219,7 +219,7 @@ body {
   min-height: 500px;
   min-height: 600px;
   cursor: pointer;
-  padding-top: 20px;
+  padding-top: 10px;
 }
 
 .slider {
