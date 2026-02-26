@@ -416,11 +416,11 @@ body {
   }
 
   .selected-work {
-    padding: 300px 20px;
+    padding: 330px 20px;
   }
 
   .project {
-    padding: 280px 20px 40px;
+    padding: 300px 20px 40px;
   }
 
   .project h2 {
@@ -501,7 +501,7 @@ body {
   }
 
   .selected-work {
-    padding-top: 200px;   /* ajuste ici */
+    padding-top: 220px;   /* ajuste ici */
     padding-left: 15px;
     padding-right: 15px;
     padding-bottom: 40px;
@@ -509,7 +509,7 @@ body {
 
 
   .project {
-    padding: 170px 15px 30px;
+    padding: 210px 15px 30px;
   }
 
   .project h2 {
