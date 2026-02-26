@@ -359,7 +359,7 @@ body {
     padding: 10px 20px;
     padding-top: 20px;
     gap: 4px;
-    top: 6px;
+    top: 8px;
   }
 
   .logo {
@@ -416,7 +416,7 @@ body {
   }
 
   .project {
-    padding: 230px 20px 40px;
+    padding: 180px 20px 40px;
   }
 
   .project h2 {
