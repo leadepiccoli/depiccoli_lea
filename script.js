@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // =======================
-  // SELECTED WORK
+  // SELECTED WORKS
   // =======================
   selectedWorkBtn.addEventListener("click", () => {
     hideAllSections();
@@ -55,7 +55,6 @@ document.addEventListener("DOMContentLoaded", () => {
       const project = document.getElementById(targetId);
       if (!project) return;
 
-      // Affiche la section sélectionnée
       hideAllSections();
       project.style.display = "block";
 
@@ -71,16 +70,17 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // =======================
-  // DROPDOWN RESPONSIVE
+  // DROPDOWN MOBILE / TABLET
   // =======================
   dropdowns.forEach(dropdown => {
     const toggle = dropdown.querySelector("a");
 
     toggle.addEventListener("click", e => {
-      if (window.innerWidth > 1200) return; // desktop hover
+      if (window.innerWidth > 1200) return; // desktop hover reste
+
       e.preventDefault(); // bloque href="#"
 
-      // Toggle ce dropdown
+      // Toggle le dropdown cliqué
       dropdown.classList.toggle("active");
 
       // Ferme les autres dropdowns
