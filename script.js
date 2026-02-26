@@ -8,10 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const selectedWorkBtn = document.getElementById("selectedWorkBtn");
   const dropdowns = document.querySelectorAll(".dropdown");
 
-  if (!home || !infoPage || !selectedWork || !homeBtn || !infoBtn || !selectedWorkBtn) {
-    console.error("DOM incomplet");
-    return;
-  }
+  if (!home || !infoPage || !selectedWork || !homeBtn || !infoBtn || !selectedWorkBtn) return;
 
   // =======================
   // CACHE TOUT
@@ -51,11 +48,9 @@ document.addEventListener("DOMContentLoaded", () => {
   // PROJECTS
   // =======================
   const projectLinks = document.querySelectorAll(".dropdown-menu li a");
-
   projectLinks.forEach(link => {
     link.addEventListener("click", e => {
       e.preventDefault();
-
       const targetId = link.getAttribute("href").replace("#", "");
       const project = document.getElementById(targetId);
       if (!project) return;
@@ -77,21 +72,19 @@ document.addEventListener("DOMContentLoaded", () => {
   // DROPDOWN RESPONSIVE
   // =======================
   dropdowns.forEach(dropdown => {
-    const toggle = dropdown.querySelector("a"); // lien principal
+    const toggle = dropdown.querySelector("a");
 
     toggle.addEventListener("click", e => {
-      if (window.innerWidth > 1200) return; // desktop = hover CSS
+      if (window.innerWidth > 1200) return; // desktop hover
+      e.preventDefault(); // bloque href="#"
+      
+      // Toggle ce dropdown
+      dropdown.classList.toggle("active");
 
-      e.preventDefault();
-      e.stopPropagation();
-
-      // ferme tous les autres dropdowns
+      // Ferme les autres dropdowns
       dropdowns.forEach(d => {
         if (d !== dropdown) d.classList.remove("active");
       });
-
-      // ouvre / ferme celui cliqué
-      dropdown.classList.toggle("active");
     });
   });
 
