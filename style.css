@@ -406,7 +406,7 @@ body {
   }
 
   .hero {
-    margin-top: 300px;
+    margin-top: 280px;
     min-height: 500px;
   }
 
@@ -416,11 +416,11 @@ body {
   }
 
   .selected-work {
-    padding: 310px 20px;
+    padding: 300px 20px;
   }
 
   .project {
-    padding: 260px 20px 40px;
+    padding: 240px 20px 40px;
   }
 
   .project h2 {
@@ -430,7 +430,7 @@ body {
 
   .slider-container {
     min-height: 400px;
-    padding-top: 20px
+    padding-top: 15px
   }
 
   .slider-image {
