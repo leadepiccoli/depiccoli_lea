@@ -397,10 +397,6 @@ body {
     margin-left: 15px;
   }
 
-  .dropdown:hover .dropdown-menu {
-    display: block;
-  }
-
   .dropdown-menu li {
     padding: 8px 0;
   }
@@ -453,7 +449,7 @@ body {
 /* ========================= */
 /* RESPONSIVE - MOBILE */
 /* ========================= */
-@media (max-width: 480px) 
+@media (max-width: 480px) {
 
   .construction-banner {
     font-size: 9px;
