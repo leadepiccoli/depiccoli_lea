@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // =======================
-  // PROJECTS
+  // PROJECTS / DROPDOWN LINKS
   // =======================
   const projectLinks = document.querySelectorAll(".dropdown-menu li a");
   projectLinks.forEach(link => {
@@ -55,16 +55,18 @@ document.addEventListener("DOMContentLoaded", () => {
       const project = document.getElementById(targetId);
       if (!project) return;
 
+      // Affiche la section sélectionnée
       hideAllSections();
       project.style.display = "block";
 
-      // FORCE LE PREMIER SLIDE
+      // Force le premier slide
       const slides = project.querySelectorAll(".slider-image");
       slides.forEach(s => s.classList.remove("active"));
       if (slides.length > 0) slides[0].classList.add("active");
 
-      // FERME LES DROPDOWNS
-      dropdowns.forEach(d => d.classList.remove("active"));
+      // Ferme le dropdown parent du lien cliqué
+      const parentDropdown = link.closest(".dropdown");
+      if (parentDropdown) parentDropdown.classList.remove("active");
     });
   });
 
@@ -77,7 +79,7 @@ document.addEventListener("DOMContentLoaded", () => {
     toggle.addEventListener("click", e => {
       if (window.innerWidth > 1200) return; // desktop hover
       e.preventDefault(); // bloque href="#"
-      
+
       // Toggle ce dropdown
       dropdown.classList.toggle("active");
 
