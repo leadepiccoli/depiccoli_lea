@@ -406,7 +406,7 @@ body {
   }
 
   .hero {
-    margin-top: 325px;
+    margin-top: 300px;
     min-height: 500px;
   }
 
@@ -416,11 +416,11 @@ body {
   }
 
   .selected-work {
-    padding: 330px 20px;
+    padding: 310px 20px;
   }
 
   .project {
-    padding: 280px 20px 40px;
+    padding: 260px 20px 40px;
   }
 
   .project h2 {
@@ -453,7 +453,7 @@ body {
 /* ========================= */
 /* RESPONSIVE - MOBILE */
 /* ========================= */
-@media (max-width: 480px) {
+@media (max-width: 480px) {https://claude.ai/login
 
   .construction-banner {
     font-size: 9px;
