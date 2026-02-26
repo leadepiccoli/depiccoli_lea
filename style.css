@@ -16,6 +16,18 @@ body {
 }
 
 /* ========================= */
+/* CACHE LES SECTIONS PAR DÉFAUT */
+/* ========================= */
+.project,
+.selected-work {
+  display: none;
+}
+
+.hero {
+  display: block;
+}
+
+/* ========================= */
 /* BANDEAU UNDER CONSTRUCTION */
 /* ========================= */
 .construction-banner {
@@ -140,7 +152,7 @@ body {
   height: auto;
   max-width: 2000px;
   margin: auto;
-  margin-top: 155px;
+  margin-top: 150px;
   background-image: url('https://leadepiccoli.github.io/website-images/depiccoli_025.jpg');
   background-repeat: no-repeat;
   background-size: contain;
@@ -344,8 +356,9 @@ body {
     flex-direction: column;
     align-items: flex-start;
     padding: 12px 20px;
+    padding-top: 35px;
     gap: 8px;
-    top: 32px;
+    top: 0px;
   }
 
   .logo {
@@ -444,15 +457,15 @@ body {
   .construction-banner {
     font-size: 9px;
     padding: 5px 0;
-    height: 28px;
   }
   
   .marquee {
-    animation: scroll 15s linear infinite;  /* Plus rapide sur mobile */
+    animation: scroll 10s linear infinite;  /* Plus rapide sur mobile */
   }
   .navbar {
     top: 32px;
     padding: 10px 15px;
+    padding-top: 35px;
     gap: 2px;
   }
 
