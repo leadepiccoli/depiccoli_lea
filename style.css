@@ -55,7 +55,7 @@ body {
 /* NAVIGATION */
 .navbar {
   position: fixed;
-  top: 0;
+  top: 35px;
   width: 100%;
   padding: 25px 40px;
   display: flex;
@@ -140,7 +140,7 @@ body {
   height: auto;
   max-width: 2000px;
   margin: auto;
-  margin-top: 130px;
+  margin-top: 155px;
   background-image: url('https://leadepiccoli.github.io/website-images/depiccoli_025.jpg');
   background-repeat: no-repeat;
   background-size: contain;
@@ -332,6 +332,13 @@ body {
 /* RESPONSIVE - TABLETTE */
 /* ========================= */
 @media (max-width: 1200px) {
+
+  .construction-banner {
+    top: 30px;
+    font-size: 10px;
+    padding: 6px 0;
+  }
+  
   .navbar {
     flex-direction: column;
     align-items: flex-start;
@@ -383,7 +390,7 @@ body {
   }
 
   .hero {
-    margin-top: 300px;
+    margin-top: 325px;
     min-height: 500px;
   }
 
@@ -431,7 +438,17 @@ body {
 /* RESPONSIVE - MOBILE */
 /* ========================= */
 @media (max-width: 480px) {
+
+  .construction-banner {
+    font-size: 9px;
+    padding: 5px 0;
+  }
+  
+  .marquee {
+    animation: scroll 25s linear infinite;  /* Plus rapide sur mobile */
+  }
   .navbar {
+    top: 28px;
     padding: 10px 15px;
     gap: 2px;
   }
@@ -454,7 +471,7 @@ body {
   }
 
   .hero {
-    margin-top: 180px;
+    margin-top: 200px;
     min-height: 400px;
     background-size: contain;
   }
