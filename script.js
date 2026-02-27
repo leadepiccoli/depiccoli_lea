@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const homeBtn = document.getElementById("homeBtn");
   const infoBtn = document.getElementById("infoBtn");
   const selectedWorkBtn = document.getElementById("selectedWorkBtn");
+  const dropdowns = document.querySelectorAll(".dropdown");  // ✅ DÉPLACÉ ICI EN HAUT
   
   if (!home || !infoPage || !selectedWork || !homeBtn || !infoBtn || !selectedWorkBtn) {
     console.error("DOM incomplet");
@@ -60,14 +61,11 @@ document.addEventListener("DOMContentLoaded", () => {
       }
       
       // FERME LES DROPDOWNS
-      const dropdowns = document.querySelectorAll(".dropdown");
       dropdowns.forEach(d => d.classList.remove("active"));
     });
   });
   
   // DROPDOWN MOBILE
-  const dropdowns = document.querySelectorAll(".dropdown");
-  
   dropdowns.forEach(dropdown => {
     // Gestion du clic
     dropdown.addEventListener("click", e => {
