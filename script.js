@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const homeBtn = document.getElementById("homeBtn");
   const infoBtn = document.getElementById("infoBtn");
   const selectedWorkBtn = document.getElementById("selectedWorkBtn");
-  const dropdowns = document.querySelectorAll(".dropdown");
+  const dropdowns = document.querySelectorAll(".dropdown");  // ✅ DÉPLACÉ ICI EN HAUT
   
   if (!home || !infoPage || !selectedWork || !homeBtn || !infoBtn || !selectedWorkBtn) {
     console.error("DOM incomplet");
@@ -41,20 +41,11 @@ document.addEventListener("DOMContentLoaded", () => {
     selectedWork.style.display = "block";
   });
   
-  // ==========================================
-  // PROJECTS - VERSION AGRESSIVE
-  // ==========================================
+  // PROJECTS
   const projectLinks = document.querySelectorAll(".dropdown-menu li a");
   projectLinks.forEach(link => {
-    // Pour le clic
     link.addEventListener("click", e => {
       e.preventDefault();
-      
-      // Ferme IMMÉDIATEMENT tous les dropdowns
-      document.querySelectorAll(".dropdown").forEach(d => {
-        d.classList.remove("active");
-      });
-      
       const targetId = link.getAttribute("href").replace("#", "");
       const project = document.getElementById(targetId);
       if (!project) return;
@@ -68,16 +59,9 @@ document.addEventListener("DOMContentLoaded", () => {
       if (slides.length > 0) {
         slides[0].classList.add("active");
       }
-    });
-    
-    // Pour le touch mobile - fermeture supplémentaire
-    link.addEventListener("touchend", e => {
-      e.preventDefault();
       
-      // Ferme les dropdowns
-      document.querySelectorAll(".dropdown").forEach(d => {
-        d.classList.remove("active");
-      });
+      // FERME LES DROPDOWNS
+      dropdowns.forEach(d => d.classList.remove("active"));
     });
   });
   
