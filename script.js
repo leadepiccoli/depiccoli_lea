@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const homeBtn = document.getElementById("homeBtn");
   const infoBtn = document.getElementById("infoBtn");
   const selectedWorkBtn = document.getElementById("selectedWorkBtn");
-  const dropdowns = document.querySelectorAll(".dropdown");  // ✅ DÉPLACÉ ICI EN HAUT
+  const dropdowns = document.querySelectorAll(".dropdown");
   
   if (!home || !infoPage || !selectedWork || !homeBtn || !infoBtn || !selectedWorkBtn) {
     console.error("DOM incomplet");
@@ -41,38 +41,45 @@ document.addEventListener("DOMContentLoaded", () => {
     selectedWork.style.display = "block";
   });
   
-  // PROJECTS
-const projectLinks = document.querySelectorAll(".dropdown-menu li a");
-projectLinks.forEach(link => {
-  link.addEventListener("click", e => {
-    e.preventDefault();
-    e.stopPropagation();  // ✅ AJOUTEZ
+  // ==========================================
+  // PROJECTS - VERSION AGRESSIVE
+  // ==========================================
+  const projectLinks = document.querySelectorAll(".dropdown-menu li a");
+  projectLinks.forEach(link => {
+    // Pour le clic
+    link.addEventListener("click", e => {
+      e.preventDefault();
+      
+      // Ferme IMMÉDIATEMENT tous les dropdowns
+      document.querySelectorAll(".dropdown").forEach(d => {
+        d.classList.remove("active");
+      });
+      
+      const targetId = link.getAttribute("href").replace("#", "");
+      const project = document.getElementById(targetId);
+      if (!project) return;
+      
+      hideAllSections();
+      project.style.display = "block";
+      
+      // FORCE LE PREMIER SLIDE
+      const slides = project.querySelectorAll(".slider-image");
+      slides.forEach(s => s.classList.remove("active"));
+      if (slides.length > 0) {
+        slides[0].classList.add("active");
+      }
+    });
     
-    const targetId = link.getAttribute("href").replace("#", "");
-    const project = document.getElementById(targetId);
-    if (!project) return;
-    
-    hideAllSections();
-    project.style.display = "block";
-    
-    // FORCE LE PREMIER SLIDE
-    const slides = project.querySelectorAll(".slider-image");
-    slides.forEach(s => s.classList.remove("active"));
-    if (slides.length > 0) {
-      slides[0].classList.add("active");
-    }
-    
-    // FERME LES DROPDOWNS - version renforcée
-    setTimeout(() => {  // ✅ AJOUTEZ un petit délai
-      dropdowns.forEach(d => d.classList.remove("active"));
-    }, 50);
+    // Pour le touch mobile - fermeture supplémentaire
+    link.addEventListener("touchend", e => {
+      e.preventDefault();
+      
+      // Ferme les dropdowns
+      document.querySelectorAll(".dropdown").forEach(d => {
+        d.classList.remove("active");
+      });
+    });
   });
-  
-  // ✅ AJOUTEZ aussi pour touchstart
-  link.addEventListener("touchstart", e => {
-    e.stopPropagation();
-  });
-});
   
   // DROPDOWN MOBILE
   dropdowns.forEach(dropdown => {
