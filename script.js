@@ -42,28 +42,37 @@ document.addEventListener("DOMContentLoaded", () => {
   });
   
   // PROJECTS
-  const projectLinks = document.querySelectorAll(".dropdown-menu li a");
-  projectLinks.forEach(link => {
-    link.addEventListener("click", e => {
-      e.preventDefault();
-      const targetId = link.getAttribute("href").replace("#", "");
-      const project = document.getElementById(targetId);
-      if (!project) return;
-      
-      hideAllSections();
-      project.style.display = "block";
-      
-      // FORCE LE PREMIER SLIDE
-      const slides = project.querySelectorAll(".slider-image");
-      slides.forEach(s => s.classList.remove("active"));
-      if (slides.length > 0) {
-        slides[0].classList.add("active");
-      }
-      
-      // FERME LES DROPDOWNS
+const projectLinks = document.querySelectorAll(".dropdown-menu li a");
+projectLinks.forEach(link => {
+  link.addEventListener("click", e => {
+    e.preventDefault();
+    e.stopPropagation();  // ✅ AJOUTEZ
+    
+    const targetId = link.getAttribute("href").replace("#", "");
+    const project = document.getElementById(targetId);
+    if (!project) return;
+    
+    hideAllSections();
+    project.style.display = "block";
+    
+    // FORCE LE PREMIER SLIDE
+    const slides = project.querySelectorAll(".slider-image");
+    slides.forEach(s => s.classList.remove("active"));
+    if (slides.length > 0) {
+      slides[0].classList.add("active");
+    }
+    
+    // FERME LES DROPDOWNS - version renforcée
+    setTimeout(() => {  // ✅ AJOUTEZ un petit délai
       dropdowns.forEach(d => d.classList.remove("active"));
-    });
+    }, 50);
   });
+  
+  // ✅ AJOUTEZ aussi pour touchstart
+  link.addEventListener("touchstart", e => {
+    e.stopPropagation();
+  });
+});
   
   // DROPDOWN MOBILE
   dropdowns.forEach(dropdown => {
