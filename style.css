@@ -294,6 +294,27 @@ body {
   display: block;
 }
 
+/* ========================= */
+/* VIDEO CONTAINER */
+/* ========================= */
+.video-container {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+
 /* CURSEUR FLECHE - Desktop seulement */
 @media (min-width: 769px) {
   .slider-container {
@@ -345,14 +366,16 @@ body {
 /* ========================= */
 @media (max-width: 1200px) {
 
+  .video-container {
+    max-width: 700px;
+  }
+  
   .construction-banner {
     font-size: 10px;
     padding: 6px 0;  
     height: auto;  
     line-height: 12px;  
-  }
-  
-  
+  }  
   .navbar {
     flex-direction: column;
     align-items: flex-start;
@@ -444,6 +467,7 @@ body {
     gap: 50px;
     padding-top: 100px;
   }
+
 }
 
 /* ========================= */
@@ -456,6 +480,11 @@ body {
     padding: 8px 0;  
     height: auto;  
     line-height: 12px;  
+  }
+
+  .video-container {
+    max-width: 100%;
+    padding: 0 15px;
   }
   
   .marquee {
