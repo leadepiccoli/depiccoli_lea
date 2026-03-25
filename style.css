@@ -466,7 +466,7 @@ body {
     align-items: center;
     justify-content: center;
     margin: 0 !important;
-    /* Tablette / iPad / laptop Ã©troit : espacement modÃ©rÃ© */
+    /* iPad / tablette / fenÃªtre Ã©troite : mÃªme espacement modÃ©rÃ© (pas le grand gap Â« ordi Â») */
     gap: 72px;
   }
 
@@ -481,18 +481,18 @@ body {
   }
 }
 
-/* Grand Ã©cran : plus dâ€™air entre les entrÃ©es (sans gonfler iPad portrait) */
-@media (min-width: 1200px) {
+/* Ordinateur large uniquement : gros Ã©carts (â‰¥1440px = au-delÃ  des iPad mÃªme en paysage) */
+@media (min-width: 1440px) {
   ul.menu,
   #menu {
-    gap: 152px;
+    gap: 200px;
   }
 }
 
-@media (min-width: 1600px) {
+@media (min-width: 1920px) {
   ul.menu,
   #menu {
-    gap: 180px;
+    gap: 260px;
   }
 }
 
