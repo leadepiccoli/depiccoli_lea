@@ -2,22 +2,24 @@ html {
   scroll-behavior: smooth;
 }
 
-* {
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
 body {
-  font-family: 'Inter', -apple-system, Arial, sans-serif;
+  font-family: "Inter", -apple-system, Arial, sans-serif;
   background: #fff;
   color: #000;
   font-weight: 400;
 }
 
-/* ========================= */
-/* CACHE LES SECTIONS PAR DÉFAUT */
-/* ========================= */
+/* -----------------------------------------------------------------------------
+   Sections (Ã©tat par dÃ©faut gÃ©rÃ© par le JS)
+   ----------------------------------------------------------------------------- */
 .project,
 .selected-work {
   display: none;
@@ -27,16 +29,20 @@ body {
   display: block;
 }
 
-/* ========================= */
-/* BANDEAU UNDER CONSTRUCTION */
-/* ========================= */
+.hidden {
+  display: none !important;
+}
+
+/* -----------------------------------------------------------------------------
+   Bandeau UNDER CONSTRUCTION
+   ----------------------------------------------------------------------------- */
 .construction-banner {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  background: black;
-  color: white;
+  background: #000;
+  color: #fff;
   padding: 8px 0;
   font-size: 11px;
   font-weight: 500;
@@ -64,7 +70,9 @@ body {
   }
 }
 
-/* NAVIGATION */
+/* -----------------------------------------------------------------------------
+   Navigation â€” base (mobile-first : colonne)
+   ----------------------------------------------------------------------------- */
 .navbar {
   position: fixed;
   top: 35px;
@@ -74,10 +82,11 @@ body {
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  background: white;
+  background: #fff;
   z-index: 1000;
   box-sizing: border-box;
 }
+
 .nav-top {
   display: flex;
   align-items: center;
@@ -86,7 +95,6 @@ body {
   gap: 16px;
 }
 
-/* Important : annule l’ancien layout absolu qui fait se chevaucher logo + info */
 .navbar .nav-top .logo,
 .navbar .nav-top .project-name,
 .navbar .nav-top #infoBtn,
@@ -97,6 +105,7 @@ body {
   top: auto !important;
   transform: none !important;
 }
+
 .logo {
   font-weight: bold;
   font-size: 12px;
@@ -104,6 +113,7 @@ body {
   white-space: nowrap;
   flex-shrink: 0;
 }
+
 .project-name {
   font-weight: bold;
   font-size: 11px;
@@ -115,6 +125,9 @@ body {
   text-align: center;
 }
 
+.project-name:empty {
+  display: none;
+}
 
 .info-btn,
 #infoBtn {
@@ -132,6 +145,7 @@ body {
   text-decoration: none !important;
   -webkit-appearance: none;
   appearance: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .info-btn:visited,
@@ -146,6 +160,7 @@ body {
   text-decoration: none !important;
   outline: none;
 }
+
 .menu {
   list-style: none;
   display: flex;
@@ -156,6 +171,7 @@ body {
   margin: 16px 0 0;
   padding: 0;
 }
+
 .menu li {
   font-weight: bold;
   font-size: 12px;
@@ -163,7 +179,9 @@ body {
   cursor: pointer;
 }
 
-/* DROPDOWN */
+/* -----------------------------------------------------------------------------
+   Dropdowns
+   ----------------------------------------------------------------------------- */
 .dropdown-menu {
   display: none;
   position: absolute;
@@ -173,37 +191,43 @@ body {
   background: none;
   list-style: none;
   padding: 10px 0;
-  box-shadow: 0 5px 20px rgba(0,0,0,0);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0);
   z-index: 1000;
 }
 
 .dropdown-menu li {
-  padding: 4px 0px;
+  padding: 4px 0;
   white-space: nowrap;
 }
 
 .dropdown-menu li a {
   text-decoration: none;
-  color: black;
+  color: #000;
 }
 
 .dropdown:hover .dropdown-menu {
   display: block;
 }
 
-/* HERO */
+.dropdown.active .dropdown-menu {
+  display: block;
+}
+
+/* -----------------------------------------------------------------------------
+   Hero
+   ----------------------------------------------------------------------------- */
 .hero {
   width: 100%;
   height: auto;
   max-width: 2000px;
   margin: auto;
   margin-top: 120px;
-  background-image: url('https://leadepiccoli.github.io/website-images/depiccoli_025.jpg');
+  background-image: url("https://leadepiccoli.github.io/website-images/depiccoli_025.jpg");
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
-  border-radius: 0px;
-  box-shadow: 0 5px 20px rgba(0,0,0,0);
+  border-radius: 0;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0);
   min-height: 600px;
 }
 
@@ -218,7 +242,9 @@ body {
   margin-top: 10px;
 }
 
-/* INFO PAGE */
+/* -----------------------------------------------------------------------------
+   Page Information
+   ----------------------------------------------------------------------------- */
 #information {
   display: flex;
   justify-content: center;
@@ -233,7 +259,7 @@ body {
 .info-page a {
   display: block;
   font-size: 1rem;
-  color: black;
+  color: #000;
   text-decoration: none;
 }
 
@@ -243,7 +269,7 @@ body {
 
 .intro-text {
   font-size: 1rem;
-  color: black;
+  color: #000;
   margin-bottom: 60px;
   text-align: center;
   max-width: 600px;
@@ -259,7 +285,7 @@ body {
 
 .links-column a {
   font-size: 1rem;
-  color: black;
+  color: #000;
   text-decoration: underline;
 }
 
@@ -267,7 +293,9 @@ body {
   text-decoration: underline;
 }
 
-/* SELECTED WORK */
+/* -----------------------------------------------------------------------------
+   Selected work
+   ----------------------------------------------------------------------------- */
 .selected-work {
   padding: 130px 40px;
 }
@@ -284,7 +312,9 @@ body {
   object-fit: cover;
 }
 
-/* PROJECTS */
+/* -----------------------------------------------------------------------------
+   Projets
+   ----------------------------------------------------------------------------- */
 .project {
   padding: 100px 40px 60px;
   font-size: 10px;
@@ -299,9 +329,9 @@ body {
   pointer-events: none;
 }
 
-/* ========================= */
-/* SLIDER STYLES */
-/* ========================= */
+/* -----------------------------------------------------------------------------
+   Slider
+   ----------------------------------------------------------------------------- */
 .slider-container {
   position: relative;
   max-width: 800px;
@@ -310,7 +340,6 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 500px;
   min-height: 600px;
   cursor: pointer;
   padding-top: 10px;
@@ -339,56 +368,6 @@ body {
   display: block;
 }
 
-/* VIDEO CONTAINER */
-.video-container {
-  position: relative;
-  max-width: 900px;
-  margin: 0 auto;
-  width: 100%;
-}
-
-.video-container::before {
-  content: "";
-  display: block;
-  padding-top: 56.25%; /* Ratio 16:9 */
-}
-
-.video-container iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-
-/* Responsive */
-@media (max-width: 1200px) {
-  .video-container {
-    max-width: 700px;
-    padding: 0 20px;
-  }
-}
-
-@media (max-width: 480px) {
-  .video-container {
-    max-width: 100%;
-    padding: 0 15px;
-  }
-  
-  .video-container iframe {
-    border: none;
-  }
-}
-
-
-/* CURSEUR FLECHE - Desktop seulement */
-@media (min-width: 769px) {
-  .slider-container {
-    cursor: e-resize;
-  }
-}
-
-/* BOUTONS INVISIBLES pour cliquer */
 .slider-btn {
   position: absolute;
   top: 0;
@@ -411,7 +390,6 @@ body {
   cursor: e-resize;
 }
 
-/* COMPTEUR - gris foncé, sans cadre */
 .slider-counter {
   position: relative;
   margin-top: 15px;
@@ -423,13 +401,86 @@ body {
   text-align: center;
 }
 
-.hidden {
-  display: none !important;
+/* -----------------------------------------------------------------------------
+   VidÃ©o (Vimeo)
+   ----------------------------------------------------------------------------- */
+.video-container {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+  width: 100%;
 }
 
-/* ========================= */
-/* RESPONSIVE - TABLETTE */
-/* ========================= */
+.video-container::before {
+  content: "";
+  display: block;
+  padding-top: 56.25%;
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* =============================================================================
+   Media queries
+   ============================================================================= */
+
+/* Desktop : une ligne â€” logo | menu centrÃ© | INFORMATION + curseur slider */
+@media (min-width: 769px) {
+  .navbar {
+    flex-direction: row !important;
+    flex-wrap: nowrap;
+    align-items: center !important;
+    justify-content: flex-start;
+    gap: 0;
+  }
+
+  .nav-top {
+    display: contents;
+  }
+
+  .logo {
+    order: 1;
+    flex: 0 0 auto;
+  }
+
+  .project-name {
+    order: 2;
+    flex: 0 1 auto;
+    min-width: 0;
+    margin: 0 12px 0 8px;
+    text-align: left;
+  }
+
+  ul.menu,
+  #menu {
+    order: 3;
+    flex: 1 1 auto;
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+    margin: 0 !important;
+    gap: 100px;
+  }
+
+  #infoBtn,
+  .info-btn {
+    order: 4;
+    flex: 0 0 auto;
+  }
+
+  .slider-container {
+    cursor: e-resize;
+  }
+}
+
+/* Tablette / Ã©crans moyens : contenu uniquement (navbar inchangÃ©e vs desktop) */
 @media (max-width: 1200px) {
   .video-container {
     max-width: 700px;
@@ -441,58 +492,6 @@ body {
     padding: 6px 0;
     height: auto;
     line-height: 12px;
-  }
-
-  .navbar {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 10px 20px;
-    padding-top: 20px;
-    gap: 4px;
-    top: 8px;
-  }
-
-  .logo {
-    font-size: 16px;
-    margin-bottom: 1px;
-  }
-
-  .project-name {
-    position: static;
-    transform: none;
-    margin-top: 5px;
-    font-size: 12px;
-  }
-
-  .menu {
-    flex-direction: column;
-    gap: 6px;
-    width: 100%;
-    justify-content: flex-start;
-  }
-
-  .menu li {
-    font-size: 16px;
-  }
-
-  #infoBtn {
-    margin-left: 0;
-  }
-
-  .dropdown-menu {
-    position: static;
-    display: none;
-    box-shadow: none;
-    padding: 0;
-    margin-left: 15px;
-  }
-
-  .dropdown-menu li {
-    padding: 8px 0;
-  }
-
-  .dropdown.active .dropdown-menu {
-    display: block;
   }
 
   .hero {
@@ -540,9 +539,57 @@ body {
   }
 }
 
-/* ========================= */
-/* RESPONSIVE - MOBILE */
-/* ========================= */
+/* Mobile / tablette Ã©troite : navbar en colonne */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    padding: 10px 20px;
+    padding-top: 20px;
+    gap: 4px;
+    top: 8px;
+  }
+
+  .nav-top {
+    display: flex !important;
+  }
+
+  .logo {
+    font-size: 16px;
+    margin-bottom: 1px;
+  }
+
+  .project-name {
+    margin-top: 5px;
+    font-size: 12px;
+  }
+
+  .menu {
+    flex-direction: column !important;
+    gap: 6px;
+    width: 100%;
+    justify-content: flex-start;
+    margin-top: 8px !important;
+  }
+
+  .menu li {
+    font-size: 16px;
+  }
+
+  .dropdown-menu {
+    position: static;
+    display: none;
+    box-shadow: none;
+    padding: 0;
+    margin-left: 15px;
+  }
+
+  .dropdown.active .dropdown-menu {
+    display: block;
+  }
+}
+
+/* TrÃ¨s petit Ã©cran : affinage */
 @media (max-width: 480px) {
   .construction-banner {
     font-size: 9px;
@@ -564,83 +611,72 @@ body {
     animation: scroll 10s linear infinite;
   }
 
-  /* NAVIGATION MOBILE */
-  /* Better mobile nav layout */
-  
-.navbar {
-  top: 40px;                 /* pushes nav below banner */
-  padding: 12px 16px 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  gap: 10px;
-}
+  .navbar {
+    top: 40px;
+    padding: 12px 16px 10px;
+    flex-direction: column !important;
+    align-items: stretch;
+    gap: 10px;
+  }
 
-/* first row: logo left, info right */
-.nav-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-}
+  .nav-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
 
-/* prevent overlap text on left */
-.logo,
-.project-name,
-#infoBtn {
-  position: static !important;
-  transform: none !important;
-  left: auto !important;
-  right: auto !important;
-  top: auto !important;
-}
+  .logo,
+  .project-name,
+  #infoBtn {
+    position: static !important;
+    transform: none !important;
+    left: auto !important;
+    right: auto !important;
+    top: auto !important;
+  }
 
-.project-name {
-  display: none !important;  /* this is likely the overlapping text */
-}
+  .project-name {
+    display: none !important;
+  }
 
-.logo {
-  font-size: 11px;
-  line-height: 1.2;
-}
+  .logo {
+    font-size: 11px;
+    line-height: 1.2;
+  }
 
-#infoBtn {
-  font-size: 11px;
-  white-space: nowrap;
-}
+  #infoBtn {
+    font-size: 11px;
+    white-space: nowrap;
+  }
 
-/* second row menu */
-.menu {
-  margin-top: 4px;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  width: 100%;
-}
+  .menu {
+    margin-top: 4px !important;
+    flex-direction: column !important;
+    gap: 8px;
+    width: 100%;
+  }
 
-.menu li {
-  font-size: 10px;
-  letter-spacing: 0.2px;
-}
+  .menu li {
+    font-size: 10px;
+    letter-spacing: 0.2px;
+  }
 
-/* dropdown list spacing */
-.dropdown-menu {
-  margin-left: 14px;
-  padding-top: 6px;
-}
+  .dropdown-menu {
+    margin-left: 14px;
+    padding-top: 6px;
+  }
 
   .dropdown.active .dropdown-menu {
     display: flex !important;
   }
 
-  /* HERO */
   .hero {
     margin-top: 215px;
     min-height: 400px;
     background-size: contain;
   }
 
-  /* SELECTED WORK GRID */
   .grid {
     grid-template-columns: 1fr;
     gap: 15px;
@@ -659,7 +695,6 @@ body {
     padding-bottom: 40px;
   }
 
-  /* PROJECTS */
   .project {
     padding: 205px 15px 30px;
   }
@@ -685,7 +720,6 @@ body {
     margin-top: 12px;
   }
 
-  /* INFORMATION PAGE */
   #information {
     height: 80vh;
     gap: 30px;
