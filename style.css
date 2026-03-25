@@ -71,11 +71,26 @@ body {
   width: 100%;
   padding: 25px 40px;
   display: flex;
-  justify-content: center;  
-  align-items: center;
+  flex-direction: column;
+  align-items: stretch;
   background: white;
   z-index: 1000;
   box-sizing: border-box;
+}
+
+.nav-top {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+.logo,
+.project-name,
+.info-btn {
+  position: static;
+  transform: none;
 }
 
 .logo {
@@ -96,13 +111,23 @@ body {
   white-space: nowrap;
 }
 
-.menu {
+.info-btn {
+  border: 0;
+  background: transparent;
+  font: inherit;
   font-weight: bold;
   font-size: 12px;
-  list-style: none;
-  display: flex;
-  gap: 260px;
+  cursor: pointer;
+  padding: 0;
   margin: 0;
+  white-space: nowrap;
+}
+.menu {
+  margin-top: 16px;
+  display: flex;
+  justify-content: center;
+  gap: 160px; /* adjust 140-200 as you prefer */
+  list-style: none;
   padding: 0;
 }
 
@@ -110,14 +135,6 @@ body {
   font-weight: bold;
   font-size: 12px;
   position: relative;
-  cursor: pointer;
-}
-
-#infoBtn {
-  position: absolute;  
-  right: 40px;
-  font-weight: bold;
-  font-size: 12px;
   cursor: pointer;
 }
 
@@ -523,49 +540,69 @@ body {
   }
 
   /* NAVIGATION MOBILE */
-  .navbar {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    padding: 10px 15px;
-    padding-top: 20px;
-    gap: 5px;
-    top: 32px;
-  }
+  /* Better mobile nav layout */
+  
+.navbar {
+  top: 40px;                 /* pushes nav below banner */
+  padding: 12px 16px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 10px;
+}
 
-  .navbar > .logo {
-    display: inline-block;
-    font-size: 12px;
-  }
+/* first row: logo left, info right */
+.nav-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
 
-  #infoBtn {
-    display: inline-block;
-    font-size: 12px;
-    cursor: pointer;
-    position: absolute;
-    right: 15px;
-    top: 20px;
-  }
+/* prevent overlap text on left */
+.logo,
+.project-name,
+#infoBtn {
+  position: static !important;
+  transform: none !important;
+  left: auto !important;
+  right: auto !important;
+  top: auto !important;
+}
 
-  .menu {
-    display: flex;
-    flex-direction: column;
-    margin-top: 40px;
-    gap: 8px;
-    width: 100%;
-  }
+.project-name {
+  display: none !important;  /* this is likely the overlapping text */
+}
 
-  .menu li {
-    font-size: 12px;
-    width: 100%;
-  }
+.logo {
+  font-size: 11px;
+  line-height: 1.2;
+}
 
-  .dropdown-menu {
-    display: none;
-    flex-direction: column;
-    margin-left: 15px;
-    padding: 5px 0;
-  }
+#infoBtn {
+  font-size: 11px;
+  white-space: nowrap;
+}
+
+/* second row menu */
+.menu {
+  margin-top: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+.menu li {
+  font-size: 10px;
+  letter-spacing: 0.2px;
+}
+
+/* dropdown list spacing */
+.dropdown-menu {
+  margin-left: 14px;
+  padding-top: 6px;
+}
 
   .dropdown.active .dropdown-menu {
     display: flex !important;
