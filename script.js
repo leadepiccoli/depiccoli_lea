@@ -2,11 +2,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const home = document.getElementById("home");
   const infoPage = document.getElementById("information");
   const selectedWork = document.getElementById("selected-work");
-  const photographyList = document.getElementById("photography-list");
   const projects = document.querySelectorAll(".project");
   const homeBtn = document.getElementById("homeBtn");
   const infoBtn = document.getElementById("infoBtn");
   const selectedWorkBtn = document.getElementById("selectedWorkBtn");
+  const dropdowns = document.querySelectorAll(".dropdown");  // ✅ DÉPLACÉ ICI EN HAUT
   
   if (!home || !infoPage || !selectedWork || !homeBtn || !infoBtn || !selectedWorkBtn) {
     console.error("DOM incomplet");
@@ -18,7 +18,6 @@ document.addEventListener("DOMContentLoaded", () => {
     home.style.display = "none";
     infoPage.style.display = "none";
     selectedWork.style.display = "none";
-    photographyList && (photographyList.style.display = "none");
     projects.forEach(p => {
       p.style.display = "none";
     });
@@ -42,34 +41,61 @@ document.addEventListener("DOMContentLoaded", () => {
     selectedWork.style.display = "block";
   });
   
-  // PHOTOGRAPHY LIST
-  const photographyBtn = document.getElementById("photographyBtn");
-  if (photographyBtn) {
-    photographyBtn.addEventListener("click", () => {
-      hideAllSections();
-      photographyList.style.display = "block";
-    });
-  }
-
   // PROJECTS
-  const projectLinks = document.querySelectorAll(".project-list a");
+  const projectLinks = document.querySelectorAll(".dropdown-menu li a");
   projectLinks.forEach(link => {
     link.addEventListener("click", e => {
       e.preventDefault();
       const targetId = link.getAttribute("href").replace("#", "");
       const project = document.getElementById(targetId);
       if (!project) return;
-
+      
       hideAllSections();
       project.style.display = "block";
-
+      
       // FORCE LE PREMIER SLIDE
       const slides = project.querySelectorAll(".slider-image");
       slides.forEach(s => s.classList.remove("active"));
-      if (slides.length > 0) slides[0].classList.add("active");
+      if (slides.length > 0) {
+        slides[0].classList.add("active");
+      }
+      
+      // FERME LES DROPDOWNS
+      dropdowns.forEach(d => d.classList.remove("active"));
     });
   });
-
+  
+  // DROPDOWN MOBILE
+  dropdowns.forEach(dropdown => {
+    // Gestion du clic
+    dropdown.addEventListener("click", e => {
+      if (e.target.tagName === "A") return;
+      e.preventDefault();
+      e.stopPropagation();
+      dropdown.classList.toggle("active");
+    });
+    
+    // Gestion du touch pour mobile
+    dropdown.addEventListener("touchstart", e => {
+      if (e.target.tagName === "A") return;
+      e.preventDefault();
+      e.stopPropagation();
+      dropdown.classList.toggle("active");
+    });
+  });
+  
+  // Ferme les dropdowns au clic/touch ailleurs
+  document.addEventListener("click", e => {
+    if (!e.target.closest(".dropdown")) {
+      dropdowns.forEach(d => d.classList.remove("active"));
+    }
+  });
+  
+  document.addEventListener("touchstart", e => {
+    if (!e.target.closest(".dropdown")) {
+      dropdowns.forEach(d => d.classList.remove("active"));
+    }
+  });
 });
 
 // =======================
@@ -109,3 +135,4 @@ document.addEventListener("keydown", e => {
     if (btn) changeSlide({ target: btn, stopPropagation() {} }, -1);
   }
 });
+
