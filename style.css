@@ -64,22 +64,22 @@ body {
   }
 }
 
-/* NAVIGATION */
 .navbar {
   position: fixed;
   top: 35px;
   width: 100%;
   padding: 25px 40px;
   display: flex;
-  justify-content: center;
+  justify-content: center;  
   align-items: center;
-  gap: 200px;
   background: white;
   z-index: 1000;
   box-sizing: border-box;
 }
 
 .logo {
+  position: absolute;  
+  left: 40px;
   font-weight: bold;
   font-size: 12px;
   cursor: pointer;
@@ -113,8 +113,11 @@ body {
 }
 
 #infoBtn {
+  position: absolute;  
+  right: 40px;
+  font-weight: bold;
+  font-size: 12px;
   cursor: pointer;
-  margin-left: 200px;
 }
 
 /* DROPDOWN */
