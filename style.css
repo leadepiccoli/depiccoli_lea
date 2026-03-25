@@ -68,8 +68,9 @@ body {
 .navbar {
   position: fixed;
   top: 35px;
+  left: 0;
   width: 100%;
-  padding: 25px 40px;
+  padding: 18px 40px 14px;
   display: flex;
   flex-direction: column;
   align-items: stretch;
@@ -77,60 +78,67 @@ body {
   z-index: 1000;
   box-sizing: border-box;
 }
-
 .nav-top {
-  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  position: relative;
+  width: 100%;
+  gap: 16px;
 }
 
-.logo,
-.project-name,
-.info-btn {
-  position: static;
-  transform: none;
+/* Important : annule l’ancien layout absolu qui fait se chevaucher logo + info */
+.navbar .nav-top .logo,
+.navbar .nav-top .project-name,
+.navbar .nav-top #infoBtn,
+.navbar .nav-top .info-btn {
+  position: static !important;
+  left: auto !important;
+  right: auto !important;
+  top: auto !important;
+  transform: none !important;
 }
-
 .logo {
-  position: absolute;  
-  left: 40px;
   font-weight: bold;
   font-size: 12px;
   cursor: pointer;
-}
-
-.project-name {
-  position: absolute;
-  left: 40px;
-  top: 50%;
-  transform: translateY(-50%);
-  font-weight: bold;
-  font-size: 12px;
   white-space: nowrap;
+  flex-shrink: 0;
+}
+.project-name {
+  font-weight: bold;
+  font-size: 11px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex: 1;
+  min-width: 0;
+  text-align: center;
 }
 
-.info-btn {
+
+.info-btn,
+#infoBtn {
   border: 0;
   background: transparent;
+  padding: 0;
+  margin: 0;
   font: inherit;
   font-weight: bold;
   font-size: 12px;
   cursor: pointer;
-  padding: 0;
-  margin: 0;
   white-space: nowrap;
+  flex-shrink: 0;
 }
 .menu {
-  margin-top: 16px;
+  list-style: none;
   display: flex;
   justify-content: center;
-  gap: 160px; /* adjust 140-200 as you prefer */
-  list-style: none;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 100px;
+  margin: 16px 0 0;
   padding: 0;
 }
-
 .menu li {
   font-weight: bold;
   font-size: 12px;
