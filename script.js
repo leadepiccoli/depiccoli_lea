@@ -1,4 +1,11 @@
+// =======================
+// SCRIPT.JS COMPLET
+// =======================
+
 document.addEventListener("DOMContentLoaded", () => {
+  // -----------------------
+  // VARIABLES
+  // -----------------------
   const home = document.getElementById("home");
   const infoPage = document.getElementById("information");
   const selectedWork = document.getElementById("selected-work");
@@ -6,42 +13,52 @@ document.addEventListener("DOMContentLoaded", () => {
   const homeBtn = document.getElementById("homeBtn");
   const infoBtn = document.getElementById("infoBtn");
   const selectedWorkBtn = document.getElementById("selectedWorkBtn");
-  const dropdowns = document.querySelectorAll(".dropdown");  // ✅ DÉPLACÉ ICI EN HAUT
-  
+  const dropdowns = document.querySelectorAll(".dropdown"); 
+
   if (!home || !infoPage || !selectedWork || !homeBtn || !infoBtn || !selectedWorkBtn) {
     console.error("DOM incomplet");
     return;
   }
   
+  // -----------------------
   // CACHE TOUT
+  // -----------------------
   function hideAllSections() {
     home.style.display = "none";
     infoPage.style.display = "none";
     selectedWork.style.display = "none";
-    projects.forEach(p => {
-      p.style.display = "none";
-    });
+    projects.forEach(p => p.style.display = "none");
+    const photographyList = document.getElementById("photography-list");
+    if (photographyList) photographyList.style.display = "none";
   }
   
+  // -----------------------
   // HOME
+  // -----------------------
   homeBtn.addEventListener("click", () => {
     hideAllSections();
     home.style.display = "block";
   });
   
+  // -----------------------
   // INFO
+  // -----------------------
   infoBtn.addEventListener("click", () => {
     hideAllSections();
     infoPage.style.display = "flex";
   });
   
+  // -----------------------
   // SELECTED WORKS
+  // -----------------------
   selectedWorkBtn.addEventListener("click", () => {
     hideAllSections();
     selectedWork.style.display = "block";
   });
   
+  // -----------------------
   // PROJECTS
+  // -----------------------
   const projectLinks = document.querySelectorAll(".dropdown-menu li a");
   projectLinks.forEach(link => {
     link.addEventListener("click", e => {
@@ -56,26 +73,23 @@ document.addEventListener("DOMContentLoaded", () => {
       // FORCE LE PREMIER SLIDE
       const slides = project.querySelectorAll(".slider-image");
       slides.forEach(s => s.classList.remove("active"));
-      if (slides.length > 0) {
-        slides[0].classList.add("active");
-      }
+      if (slides.length > 0) slides[0].classList.add("active");
       
       // FERME LES DROPDOWNS
       dropdowns.forEach(d => d.classList.remove("active"));
     });
   });
   
+  // -----------------------
   // DROPDOWN MOBILE
+  // -----------------------
   dropdowns.forEach(dropdown => {
-    // Gestion du clic
     dropdown.addEventListener("click", e => {
       if (e.target.tagName === "A") return;
       e.preventDefault();
       e.stopPropagation();
       dropdown.classList.toggle("active");
     });
-    
-    // Gestion du touch pour mobile
     dropdown.addEventListener("touchstart", e => {
       if (e.target.tagName === "A") return;
       e.preventDefault();
@@ -86,17 +100,60 @@ document.addEventListener("DOMContentLoaded", () => {
   
   // Ferme les dropdowns au clic/touch ailleurs
   document.addEventListener("click", e => {
-    if (!e.target.closest(".dropdown")) {
-      dropdowns.forEach(d => d.classList.remove("active"));
-    }
+    if (!e.target.closest(".dropdown")) dropdowns.forEach(d => d.classList.remove("active"));
   });
-  
   document.addEventListener("touchstart", e => {
-    if (!e.target.closest(".dropdown")) {
-      dropdowns.forEach(d => d.classList.remove("active"));
-    }
+    if (!e.target.closest(".dropdown")) dropdowns.forEach(d => d.classList.remove("active"));
   });
-});
+
+  // -----------------------
+  // PHOTOGRAPHY LIST HOVER PREVIEW
+  // -----------------------
+  const photographyList = document.getElementById("photography-list");
+  if (photographyList) {
+    const projectItems = photographyList.querySelectorAll(".project-item");
+
+    projectItems.forEach(item => {
+      const preview = item.querySelector(".preview");
+      if (!preview) return;
+
+      item.addEventListener("mousemove", e => {
+        const rect = item.getBoundingClientRect();
+        const offsetX = e.clientX - rect.left;
+        preview.style.left = `${offsetX}px`;
+      });
+
+      item.addEventListener("mouseleave", () => {
+        preview.style.opacity = 0;
+        preview.style.transform = "translateX(-50%) scale(0)";
+      });
+
+      item.addEventListener("mouseenter", () => {
+        preview.style.opacity = 1;
+        preview.style.transform = "translateX(-50%) scale(1)";
+      });
+
+      // Clique pour aller au projet
+      const link = item.querySelector("a");
+      if (link) {
+        link.addEventListener("click", e => {
+          e.preventDefault();
+          const targetId = link.getAttribute("href").replace("#", "");
+          const project = document.getElementById(targetId);
+          if (!project) return;
+          hideAllSections();
+          project.style.display = "block";
+
+          // Premier slide
+          const slides = project.querySelectorAll(".slider-image");
+          slides.forEach(s => s.classList.remove("active"));
+          if (slides.length > 0) slides[0].classList.add("active");
+        });
+      }
+    });
+  }
+
+}); // FIN DOMContentLoaded
 
 // =======================
 // SLIDER
@@ -108,9 +165,7 @@ function changeSlide(event, direction) {
   const slides = slider.querySelectorAll(".slider-image");
   const counter = slider.querySelector(".current-slide");
   let index = 0;
-  slides.forEach((s, i) => {
-    if (s.classList.contains("active")) index = i;
-  });
+  slides.forEach((s, i) => { if (s.classList.contains("active")) index = i; });
   slides[index].classList.remove("active");
   let next = index + direction;
   if (next >= slides.length) next = 0;
@@ -119,10 +174,11 @@ function changeSlide(event, direction) {
   if (counter) counter.textContent = next + 1;
 }
 
-// NAV CLAVIER
+// -----------------------
+// NAVIGATION CLAVIER
+// -----------------------
 document.addEventListener("keydown", e => {
-  const project = [...document.querySelectorAll(".project")]
-    .find(p => p.style.display === "block");
+  const project = [...document.querySelectorAll(".project")].find(p => p.style.display === "block");
   if (!project) return;
   const slider = project.querySelector(".slider-container");
   if (!slider) return;
