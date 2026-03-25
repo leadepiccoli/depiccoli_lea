@@ -285,7 +285,7 @@ body {
 .slider-image {
   display: none;
   max-width: 700px;
-  max-height: 80vh;
+  max-height: 75vh;
   width: 100%;
   height: auto;
   object-fit: contain;
