@@ -71,8 +71,9 @@ body {
   width: 100%;
   padding: 25px 40px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
+  gap: 200px;
   background: white;
   z-index: 1000;
   box-sizing: border-box;
@@ -102,8 +103,6 @@ body {
   gap: 200px;
   margin: 0;
   padding: 0;
-  flex: 1;
-  justify-content: center;
 }
 
 .menu li {
@@ -115,7 +114,7 @@ body {
 
 #infoBtn {
   cursor: pointer;
-  margin-left: 150px;
+  margin-left: 200px;
 }
 
 /* DROPDOWN */
