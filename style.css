@@ -496,7 +496,7 @@ body {
 }
 
 /* ========================= */
-/* RESPONSIVE - MOBILE */
+/* RESPONSIVE - MOBILE CORRIGÉE */
 /* ========================= */
 @media (max-width: 480px) {
 
@@ -519,30 +519,59 @@ body {
   .marquee {
     animation: scroll 10s linear infinite;  /* Plus rapide sur mobile */
   }
+
+  /* ========================= */
+  /* NAVIGATION MOBILE */
+  /* ========================= */
   .navbar {
-    top: 32px;
+    flex-direction: column;   /* Menu en colonne */
+    align-items: flex-start;
+    justify-content: flex-start;
     padding: 10px 15px;
     padding-top: 30px;
-    gap: 2px;
+    gap: 5px;
+    top: 32px;
   }
 
   .logo {
     font-size: 12px;
-    margin-bottom: 2px;
+    margin-bottom: 5px;      /* espace sous le logo */
   }
 
-  .project-name {
-    font-size: 8px;
+  #infoBtn {
+    font-size: 12px;
+    align-self: flex-end;    /* info à droite sur la même ligne que logo */
+    margin-bottom: 10px;     /* espace sous info */
+    cursor: pointer;
   }
 
   .menu {
+    display: flex;
+    flex-direction: column;  /* items verticalement */
+    width: 100%;
     gap: 8px;
   }
 
   .menu li {
     font-size: 12px;
+    width: 100%;
   }
 
+  /* Dropdown au clic */
+  .dropdown-menu {
+    display: none;
+    flex-direction: column;
+    margin-left: 15px;
+    padding: 5px 0;
+  }
+
+  .dropdown.active .dropdown-menu {
+    display: flex !important;
+  }
+
+  /* ========================= */
+  /* AUTRES AJUSTEMENTS MOBILE */
+  /* ========================= */
   .hero {
     margin-top: 215px;
     min-height: 400px;
@@ -556,17 +585,16 @@ body {
   }
 
   .grid img {
-    width: 90%;  /* ✅ AJOUTEZ cette ligne - réduit à 90% de la largeur */
-    margin: 0 auto;  /* ✅ AJOUTEZ cette ligne - centre les images */
+    width: 90%;
+    margin: 0 auto;
   }
-  
+
   .selected-work {
-    padding-top: 220px;   /* ajuste ici */
+    padding-top: 220px;
     padding-left: 15px;
     padding-right: 15px;
     padding-bottom: 40px;
   }
-
 
   .project {
     padding: 205px 15px 30px;
@@ -608,9 +636,4 @@ body {
     margin-bottom: 30px;
     padding: 0 20px;
   }
-}
-
-/* FIX MOBILE - Affichage du dropdown au clic */
-.dropdown.active .dropdown-menu {
-  display: block !important;
 }
