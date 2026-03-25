@@ -64,6 +64,7 @@ body {
   }
 }
 
+/* NAVIGATION */
 .navbar {
   position: fixed;
   top: 35px;
@@ -100,7 +101,7 @@ body {
   font-size: 12px;
   list-style: none;
   display: flex;
-  gap: 200px;
+  gap: 220px;
   margin: 0;
   padding: 0;
 }
