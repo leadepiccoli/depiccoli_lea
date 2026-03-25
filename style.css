@@ -319,6 +319,83 @@ body {
   height: 100%;
 }
 
+/* ========================= */
+/* PHOTOGRAPHY LIST & HOVER PREVIEW */
+/* ========================= */
+#photography-list {
+  padding: 120px 40px;
+  text-align: center;
+}
+
+#photography-list h1 {
+  font-size: 24px;
+  margin-bottom: 50px;
+  font-weight: 500;
+}
+
+.project-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 40px;
+  justify-items: center;
+}
+
+.project-item {
+  position: relative;
+  cursor: pointer;
+  text-align: center;
+}
+
+.project-item a {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 14px;
+  color: #000;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.project-item a:hover {
+  text-decoration: underline;
+}
+
+/* Thumbnails */
+.project-item .thumb {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  display: block;
+  border-radius: 4px;
+  transition: transform 0.3s ease;
+}
+
+/* Preview on hover */
+.project-item .preview {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%) scale(0);
+  width: 300px;
+  max-width: 90vw;
+  max-height: 60vh;
+  object-fit: contain;
+  border-radius: 6px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  pointer-events: none;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  z-index: 10;
+  opacity: 0;
+}
+
+.project-item:hover .preview {
+  transform: translateX(-50%) scale(1);
+  opacity: 1;
+}
+
+.project-item:hover .thumb {
+  transform: scale(0.95);
+}
+
 /* Responsive */
 @media (max-width: 1200px) {
   .video-container {
@@ -493,6 +570,23 @@ body {
     padding-top: 100px;
   }
 
+   #photography-list {
+    padding: 180px 20px 80px;
+  }
+
+  .project-list {
+    gap: 30px;
+  }
+
+  .project-item .preview {
+    width: 90%;
+    max-height: 50vh;
+  }
+
+  .project-item .thumb {
+    height: 120px;
+  }
+
 }
 
 /* ========================= */
@@ -607,6 +701,19 @@ body {
     font-size: 0.9rem;
     margin-bottom: 30px;
     padding: 0 20px;
+  }
+
+   #photography-list {
+    padding: 150px 15px 50px;
+  }
+
+  .project-item .preview {
+    width: 95%;
+    max-height: 40vh;
+  }
+
+  .project-item .thumb {
+    height: 100px;
   }
 }
 
