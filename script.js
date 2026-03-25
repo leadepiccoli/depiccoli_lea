@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const homeBtn = document.getElementById("homeBtn");
   const infoBtn = document.getElementById("infoBtn");
   const selectedWorkBtn = document.getElementById("selectedWorkBtn");
-  const dropdowns = document.querySelectorAll(".dropdown");  // ✅ DÉPLACÉ ICI EN HAUT
+  const dropdowns = document.querySelectorAll(".dropdown");
   
   if (!home || !infoPage || !selectedWork || !homeBtn || !infoBtn || !selectedWorkBtn) {
     console.error("DOM incomplet");
@@ -65,33 +65,21 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
   
-  // DROPDOWN MOBILE
+  // DROPDOWN MOBILE (click only, no touchstart)
   dropdowns.forEach(dropdown => {
-    // Gestion du clic
     dropdown.addEventListener("click", e => {
       if (e.target.tagName === "A") return;
       e.preventDefault();
       e.stopPropagation();
-      dropdown.classList.toggle("active");
-    });
-    
-    // Gestion du touch pour mobile
-    dropdown.addEventListener("touchstart", e => {
-      if (e.target.tagName === "A") return;
-      e.preventDefault();
-      e.stopPropagation();
-      dropdown.classList.toggle("active");
-    });
-  });
-  
-  // Ferme les dropdowns au clic/touch ailleurs
-  document.addEventListener("click", e => {
-    if (!e.target.closest(".dropdown")) {
+
+      const wasActive = dropdown.classList.contains("active");
       dropdowns.forEach(d => d.classList.remove("active"));
-    }
+      if (!wasActive) dropdown.classList.add("active");
+    });
   });
   
-  document.addEventListener("touchstart", e => {
+  // Ferme les dropdowns au clic ailleurs
+  document.addEventListener("click", e => {
     if (!e.target.closest(".dropdown")) {
       dropdowns.forEach(d => d.classList.remove("active"));
     }
@@ -135,4 +123,3 @@ document.addEventListener("keydown", e => {
     if (btn) changeSlide({ target: btn, stopPropagation() {} }, -1);
   }
 });
-
