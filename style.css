@@ -520,36 +520,72 @@ body {
     animation: scroll 10s linear infinite;  /* Plus rapide sur mobile */
   }
 
-  /* ========================= */
+/* ========================= */
+/* RESPONSIVE - MOBILE FINAL */
+/* ========================= */
+@media (max-width: 480px) {
+
+  /* ------------------------- */
+  /* BANDEAU UNDER CONSTRUCTION */
+  /* ------------------------- */
+  .construction-banner {
+    font-size: 9px;
+    padding: 8px 0;  
+    height: auto;  
+    line-height: 12px;  
+  }
+
+  .marquee {
+    animation: scroll 10s linear infinite;  /* Plus rapide sur mobile */
+  }
+
+  /* ------------------------- */
+  /* VIDÉO */
+  /* ------------------------- */
+  .video-container {
+    max-width: 100%;
+    padding: 0 15px;
+  }
+  
+  .video-container iframe {
+    border: none;
+  }
+
+  /* ------------------------- */
   /* NAVIGATION MOBILE */
-  /* ========================= */
+  /* ------------------------- */
   .navbar {
-    flex-direction: column;   /* Menu en colonne */
-    align-items: flex-start;
-    justify-content: flex-start;
+    flex-direction: column; /* menu en colonne */
+    align-items: stretch;
     padding: 10px 15px;
     padding-top: 30px;
     gap: 5px;
     top: 32px;
+    display: flex;
   }
 
-  .logo {
+  /* Ligne supérieure : logo à gauche, info à droite */
+  #homeBtn {
+    float: left;
     font-size: 12px;
-    margin-bottom: 5px;      /* espace sous le logo */
+    margin-bottom: 5px;
   }
 
   #infoBtn {
+    float: right;
     font-size: 12px;
-    align-self: flex-end;    /* info à droite sur la même ligne que logo */
-    margin-bottom: 10px;     /* espace sous info */
     cursor: pointer;
+    margin-bottom: 10px;
   }
 
+  /* Clear floats pour que la liste descende */
   .menu {
+    clear: both;
     display: flex;
-    flex-direction: column;  /* items verticalement */
+    flex-direction: column;
     width: 100%;
     gap: 8px;
+    margin-top: 10px; /* espace entre top line et menu */
   }
 
   .menu li {
@@ -569,15 +605,18 @@ body {
     display: flex !important;
   }
 
-  /* ========================= */
-  /* AUTRES AJUSTEMENTS MOBILE */
-  /* ========================= */
+  /* ------------------------- */
+  /* HERO */
+  /* ------------------------- */
   .hero {
     margin-top: 215px;
     min-height: 400px;
     background-size: contain;
   }
 
+  /* ------------------------- */
+  /* SELECTED WORK GRID */
+  /* ------------------------- */
   .grid {
     grid-template-columns: 1fr;
     gap: 15px;
@@ -596,6 +635,9 @@ body {
     padding-bottom: 40px;
   }
 
+  /* ------------------------- */
+  /* PROJECTS */
+  /* ------------------------- */
   .project {
     padding: 205px 15px 30px;
   }
@@ -608,7 +650,7 @@ body {
   .slider-container {
     min-height: 350px;
     cursor: pointer;
-    padding-top: 15px
+    padding-top: 15px;
   }
 
   .slider-image {
@@ -621,6 +663,9 @@ body {
     margin-top: 12px;
   }
 
+  /* ------------------------- */
+  /* INFORMATION PAGE */
+  /* ------------------------- */
   #information {
     height: 80vh;
     gap: 30px;
