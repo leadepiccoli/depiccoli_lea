@@ -521,13 +521,10 @@ body {
   }
 
 /* ========================= */
-/* RESPONSIVE - MOBILE FINAL */
+/* RESPONSIVE MOBILE - 100% CSS, HTML inchangé */
 /* ========================= */
 @media (max-width: 480px) {
 
-  /* ------------------------- */
-  /* BANDEAU UNDER CONSTRUCTION */
-  /* ------------------------- */
   .construction-banner {
     font-size: 9px;
     padding: 8px 0;  
@@ -535,57 +532,54 @@ body {
     line-height: 12px;  
   }
 
-  .marquee {
-    animation: scroll 10s linear infinite;  /* Plus rapide sur mobile */
-  }
-
-  /* ------------------------- */
-  /* VIDÉO */
-  /* ------------------------- */
   .video-container {
     max-width: 100%;
     padding: 0 15px;
   }
-  
+
   .video-container iframe {
     border: none;
+  }
+
+  .marquee {
+    animation: scroll 10s linear infinite;  
   }
 
   /* ------------------------- */
   /* NAVIGATION MOBILE */
   /* ------------------------- */
   .navbar {
-    flex-direction: column; /* menu en colonne */
+    display: flex;
+    flex-direction: column;
     align-items: stretch;
     padding: 10px 15px;
-    padding-top: 30px;
+    padding-top: 20px;
     gap: 5px;
     top: 32px;
-    display: flex;
   }
 
-  /* Ligne supérieure : logo à gauche, info à droite */
-  #homeBtn {
-    float: left;
+  /* Ligne haute : logo à gauche, info à droite */
+  .navbar > .logo {
+    display: inline-block;
     font-size: 12px;
-    margin-bottom: 5px;
   }
 
   #infoBtn {
-    float: right;
+    display: inline-block;
     font-size: 12px;
     cursor: pointer;
-    margin-bottom: 10px;
+    position: absolute; /* on va le placer à droite */
+    right: 15px;
+    top: 20px;
   }
 
-  /* Clear floats pour que la liste descende */
+  /* Menu principal sous la ligne haute */
   .menu {
-    clear: both;
     display: flex;
     flex-direction: column;
-    width: 100%;
+    margin-top: 40px; /* laisse la place à infoBtn */
     gap: 8px;
-    margin-top: 10px; /* espace entre top line et menu */
+    width: 100%;
   }
 
   .menu li {
@@ -593,7 +587,7 @@ body {
     width: 100%;
   }
 
-  /* Dropdown au clic */
+  /* Dropdown mobile */
   .dropdown-menu {
     display: none;
     flex-direction: column;
