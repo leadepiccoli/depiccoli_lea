@@ -167,7 +167,7 @@ body {
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  gap: 200px;
+  gap: 260px;
   margin: 16px 0 0;
   padding: 0;
 }
@@ -467,7 +467,7 @@ body {
     justify-content: center;
     margin: 0 !important;
     /* iPad / tablette / fenÃªtre Ã©troite : mÃªme espacement modÃ©rÃ© (pas le grand gap Â« ordi Â») */
-    gap: 144px;
+    gap: 200px;
   }
 
   #infoBtn,
@@ -539,7 +539,8 @@ body {
   }
 
   .slider-image {
-    max-width: 300px;
+    max-width: 700px;
+    max-height: 75vh;
   }
 
   .intro-text {
