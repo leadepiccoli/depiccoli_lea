@@ -425,6 +425,15 @@ body {
   height: 100%;
 }
 
+.video h2 {
+  text-align: center;
+  margin-top: 8px;
+  font-size: 12px;
+  font-weight: normal;
+  color: #333;
+  pointer-events: none;
+}
+
 /* =============================================================================
    Media queries
    ============================================================================= */
