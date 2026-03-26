@@ -167,7 +167,7 @@ body {
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  gap: 72px;
+  gap: 200px;
   margin: 16px 0 0;
   padding: 0;
 }
@@ -467,7 +467,7 @@ body {
     justify-content: center;
     margin: 0 !important;
     /* iPad / tablette / fenÃªtre Ã©troite : mÃªme espacement modÃ©rÃ© (pas le grand gap Â« ordi Â») */
-    gap: 72px;
+    gap: 144px;
   }
 
   #infoBtn,
@@ -485,7 +485,7 @@ body {
 @media (min-width: 1440px) {
   ul.menu,
   #menu {
-    gap: 200px;
+    gap: 260px;
   }
 }
 
