@@ -322,7 +322,7 @@ body {
    Selected work
    ----------------------------------------------------------------------------- */
 .selected-work {
-  padding: 130px 40px;
+  padding: 130px 16px;
 }
 
 .grid {
@@ -561,7 +561,7 @@ body {
   }
 
   .selected-work {
-    padding: 280px 20px;
+    padding: 280px 12px;
   }
 
   .project {
@@ -755,8 +755,8 @@ body {
 
   .selected-work {
     padding-top: 220px;
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-left: 8px;
+    padding-right: 8px;
     padding-bottom: 40px;
   }
 
