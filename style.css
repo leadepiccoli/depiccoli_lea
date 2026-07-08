@@ -328,7 +328,7 @@ body {
 .grid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  gap: 2px;
+  gap: 16px;
 }
 
 .grid img {
@@ -557,7 +557,7 @@ body {
 
   .grid {
     grid-template-columns: repeat(3, 1fr);
-    gap: 2px;
+    gap: 12px;
   }
 
   .selected-work {
@@ -736,6 +736,9 @@ body {
 
   .dropdown-menu {
     margin-left: 14px;
+  }
+
+  .dropdown.active .dropdown-menu {
     padding-top: 6px;
   }
 
@@ -747,7 +750,7 @@ body {
 
   .grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 2px;
+    gap: 8px;
   }
 
   .selected-work {
