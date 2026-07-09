@@ -58,7 +58,7 @@ body {
 }
 
 .marquee span {
-  padding-right: 100px;
+  padding-right: 0;
 }
 
 @keyframes scroll {
