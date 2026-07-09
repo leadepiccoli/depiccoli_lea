@@ -177,6 +177,27 @@ body {
   font-size: 12px;
   position: relative;
   cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.logo {
+  transition: opacity 0.2s ease;
+}
+
+.info-btn,
+#infoBtn {
+  transition: opacity 0.2s ease;
+}
+
+/* Survol activé uniquement sur les appareils avec une vraie souris
+   (évite l'effet "collé" sur mobile/tablette au toucher) */
+@media (hover: hover) and (pointer: fine) {
+  .menu li:hover,
+  .logo:hover,
+  .info-btn:hover,
+  #infoBtn:hover {
+    opacity: 0.5;
+  }
 }
 
 /* -----------------------------------------------------------------------------
@@ -336,11 +357,6 @@ body {
   height: auto;
   display: block;
   cursor: pointer;
-  transition: opacity 0.3s ease;
-}
-
-.grid img:hover {
-  opacity: 0.7;
 }
 
 /* -----------------------------------------------------------------------------
