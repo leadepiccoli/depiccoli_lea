@@ -481,6 +481,51 @@ body {
   pointer-events: none;
 }
 
+/* -----------------------------------------------------------------------------
+   Video essay (texte accompagnant une vidéo, ex: Nouveau Monde)
+   ----------------------------------------------------------------------------- */
+.video-essay {
+  max-width: 700px;
+  margin: 50px auto 0;
+  padding: 0 40px 100px;
+  text-align: justify;
+  line-height: 1.7;
+}
+
+.video-essay-poem {
+  white-space: pre-line;
+  font-size: 0.95rem;
+  margin-bottom: 40px;
+  text-align: left;
+}
+
+.video-essay h3 {
+  margin-top: 50px;
+  margin-bottom: 4px;
+  font-size: 13px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.video-essay-label {
+  font-style: italic;
+  font-size: 0.8rem;
+  color: #555;
+  margin-bottom: 4px;
+}
+
+.video-essay-definition {
+  font-size: 0.9rem;
+  font-style: italic;
+  margin-bottom: 20px;
+}
+
+.video-essay p {
+  font-size: 0.95rem;
+  margin-bottom: 20px;
+}
+
 /* =============================================================================
    Media queries
    ============================================================================= */
