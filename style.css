@@ -665,6 +665,12 @@ body {
     gap: 50px;
     padding-top: 100px;
   }
+  
+  .project-text {
+    font-size: 11px;
+    margin-top: 15px;
+    padding: 0 30px;
+  }
 }
 
 /* Mobile / tablette étroite : navbar en colonne */
@@ -778,6 +784,12 @@ body {
   .logo {
     font-size: 11px;
     line-height: 1.2;
+  }
+  
+  .project-text {
+    font-size: 10px;
+    margin-top: 12px;
+    padding: 0 20px;
   }
 
   #infoBtn {
