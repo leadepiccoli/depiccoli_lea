@@ -41,11 +41,11 @@ body {
   top: 0;
   left: 0;
   width: 100%;
-  background: #000;
-  color: #fff;
-  padding: 8px 0;
-  font-size: 11px;
-  font-weight: 500;
+  background: #fff;
+  color: #000;
+  padding: 5px 0;
+  font-size: 10px;
+  font-weight: 300;
   letter-spacing: 1px;
   z-index: 2000;
   overflow: hidden;
@@ -107,15 +107,17 @@ body {
 }
 
 .logo {
-  font-weight: bold;
+  font-weight: 300;
   font-size: 12px;
+  text-transform: lowercase;
   cursor: pointer;
   white-space: nowrap;
   flex-shrink: 0;
 }
 
 .project-name {
-  font-weight: bold;
+  font-weight: 300;
+  text-transform: lowercase;
   font-size: 11px;
   white-space: nowrap;
   overflow: hidden;
@@ -136,8 +138,9 @@ body {
   padding: 0;
   margin: 0;
   font: inherit;
-  font-weight: bold;
+  font-weight: 300;
   font-size: 12px;
+  text-transform: lowercase;
   cursor: pointer;
   white-space: nowrap;
   flex-shrink: 0;
@@ -173,8 +176,9 @@ body {
 }
 
 .menu li {
-  font-weight: bold;
+  font-weight: 300;
   font-size: 12px;
+  text-transform: lowercase;
   position: relative;
   cursor: pointer;
   transition: opacity 0.2s ease;
@@ -263,18 +267,21 @@ body {
    Hero
    ----------------------------------------------------------------------------- */
 .hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 140px;
+  min-height: calc(100vh - 140px);
+  padding: 0 20px 60px;
+  box-sizing: border-box;
+}
+
+.hero-image {
   width: 100%;
+  max-width: 260px;
   height: auto;
-  max-width: 2000px;
-  margin: auto;
-  margin-top: 120px;
-  background-image: url("https://leadepiccoli.github.io/website-images/depiccoli_025.jpg");
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
-  border-radius: 0;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0);
-  min-height: 600px;
+  display: block;
 }
 
 .hero h1 {
@@ -304,7 +311,8 @@ body {
 
 .info-page a {
   display: block;
-  font-size: 1rem;
+  font-size: 0.85rem;
+  font-weight: 300;
   color: #000;
   text-decoration: none;
 }
@@ -314,7 +322,8 @@ body {
 }
 
 .intro-text {
-  font-size: 1rem;
+  font-size: 0.85rem;
+  font-weight: 300;
   color: #000;
   margin-bottom: 60px;
   text-align: center;
@@ -330,7 +339,8 @@ body {
 }
 
 .links-column a {
-  font-size: 1rem;
+  font-size: 0.85rem;
+  font-weight: 300;
   color: #000;
   text-decoration: underline;
 }
@@ -343,20 +353,28 @@ body {
    Selected work
    ----------------------------------------------------------------------------- */
 .selected-work {
-  padding: 130px 16px;
+  padding: 130px 16px 100px;
 }
 
-.grid {
+.overview-feed {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 16px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0;
+  max-width: 760px;
+  margin: 0 auto;
 }
 
-.grid img {
+.overview-feed img {
   width: 100%;
   height: auto;
   display: block;
-  cursor: pointer;
+}
+
+.overview-feed img:nth-child(3n) {
+  grid-column: span 2;
+  width: 34%;
+  height: auto;
+  margin: 0 auto;
 }
 
 /* -----------------------------------------------------------------------------
@@ -371,7 +389,8 @@ body {
   text-align: center;
   margin-top: 8px;
   font-size: 12px;
-  font-weight: normal;
+  font-weight: 300;
+  text-transform: lowercase;
   color: #333;
   pointer-events: none;
 }
@@ -441,6 +460,7 @@ body {
   position: relative;
   margin-top: 15px;
   font-size: 12px;
+  font-weight: 300;
   color: #333;
   background: none;
   padding: 0;
@@ -476,7 +496,8 @@ body {
   text-align: center;
   margin-top: 12px;
   font-size: 12px;
-  font-weight: normal;
+  font-weight: 300;
+  text-transform: lowercase;
   color: #333;
   pointer-events: none;
 }
@@ -503,9 +524,9 @@ body {
   margin-top: 50px;
   margin-bottom: 4px;
   font-size: 13px;
-  font-weight: bold;
+  font-weight: 300;
   letter-spacing: 1px;
-  text-transform: uppercase;
+  text-transform: lowercase;
 }
 
 .video-essay-label {
@@ -560,40 +581,77 @@ body {
   ul.menu,
   #menu {
     order: 3;
-    flex: 1 1 auto;
+    flex: 0 0 auto;
     display: flex !important;
     flex-direction: row !important;
     flex-wrap: nowrap;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-end;
     margin: 0 !important;
-    /* iPad / tablette / fenêtre étroite : même espacement modéré (pas le grand gap « ordi ») */
-    gap: 200px;
+    margin-left: auto !important;
+    gap: 64px;
   }
 
   #infoBtn,
   .info-btn {
     order: 4;
     flex: 0 0 auto;
+    margin-left: 64px;
   }
 
   .slider-container {
     cursor: e-resize;
   }
-}
 
-/* Ordinateur large uniquement : gros écarts (≥1440px = au-delà des iPad même en paysage) */
-@media (min-width: 1440px) {
-  ul.menu,
-  #menu {
-    gap: 260px;
+  /* Page d'accueil : titres et photo alignés sur une même ligne, au centre vertical de l'écran */
+  body.home-view {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
   }
-}
 
-@media (min-width: 1920px) {
-  ul.menu,
-  #menu {
-    gap: 260px;
+  body.home-view .navbar {
+    position: static;
+    width: 100%;
+    background: transparent;
+  }
+
+  body.home-view .dropdown.active .dropdown-menu {
+    background: #fff;
+  }
+
+  /* Accueil : "lea de piccoli, projects" a gauche / "overview, information" a droite */
+  body.home-view .menu,
+  body.home-view #menu {
+    display: contents !important;
+  }
+
+  body.home-view .menu .dropdown {
+    order: 2;
+    margin-left: 64px;
+  }
+
+  body.home-view #selectedWorkBtn {
+    order: 3;
+    margin-left: auto;
+  }
+
+  body.home-view #infoBtn,
+  body.home-view .info-btn {
+    margin-left: 64px;
+  }
+
+  body.home-view .hero {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-height: 0;
+    margin: 0;
+    padding: 0;
+    z-index: 500;
   }
 }
 
@@ -613,16 +671,11 @@ body {
 
   .hero {
     margin-top: 180px;
-    min-height: 500px;
-  }
-
-  .grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
+    min-height: calc(100vh - 180px);
   }
 
   .selected-work {
-    padding: 280px 12px;
+    padding: 280px 12px 80px;
   }
 
   .project {
@@ -789,7 +842,7 @@ body {
   }
 
   .menu li {
-    font-size: 10px;
+    font-size: 11px;
     letter-spacing: 0.2px;
     text-align: left;
     width: 100%;
@@ -805,13 +858,15 @@ body {
 
   .hero {
     margin-top: 215px;
-    min-height: 400px;
-    background-size: contain;
+    min-height: calc(100vh - 215px);
   }
 
-  .grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 8px;
+  .hero-image {
+    max-width: 200px;
+  }
+
+  .overview-feed {
+    gap: 16px;
   }
 
   .selected-work {

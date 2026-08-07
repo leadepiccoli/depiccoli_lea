@@ -13,7 +13,10 @@ document.addEventListener("DOMContentLoaded", () => {
     console.error("DOM incomplet");
     return;
   }
-  
+
+  // ETAT INITIAL : home affichee par defaut
+  document.body.classList.add("home-view");
+
   // FERME LE MENU DROPDOWN + L'OVERLAY
   function closeDropdowns() {
     dropdowns.forEach(d => d.classList.remove("active"));
@@ -28,20 +31,22 @@ document.addEventListener("DOMContentLoaded", () => {
     projects.forEach(p => {
       p.style.display = "none";
     });
+    document.body.classList.remove("home-view");
   }
-  
+
   // HOME
   homeBtn.addEventListener("click", () => {
     hideAllSections();
-    home.style.display = "block";
+    home.style.display = "flex";
+    document.body.classList.add("home-view");
   });
-  
+
   // INFO
   infoBtn.addEventListener("click", () => {
     hideAllSections();
     infoPage.style.display = "flex";
   });
-  
+
   // SELECTED WORKS
   selectedWorkBtn.addEventListener("click", () => {
     hideAllSections();
